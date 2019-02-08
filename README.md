@@ -15,4 +15,7 @@
 4. Get the relative health of your city. Visualized.
 
 5. Be sure to checkout any news & general information about your city! 
+
+<img src="drawing.jpg" alt="drawing" height="200" width="600"/>
+
 ![Picture of City](https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg)
