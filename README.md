@@ -17,6 +17,6 @@
 
 <h1 align="center"> See it live! </h1>
 
-<a align="center"> 
-[Here](https://zempo.github.io/Healthopolis/)
-</a>
+<a align="center" href="https://zempo.github.io/Healthopolis/">
+Here!
+</a> 
