@@ -4,8 +4,6 @@
 
 #### [Here](https://zempo.github.io/portfolio/)
 
-![Picture of City](https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg)
-
 ### How does it work?
 
 1. Type the name of your city into the search bar.
@@ -17,4 +15,4 @@
 4. Get the relative health of your city. Visualized.
 
 5. Be sure to checkout any news & general information about your city! 
-
+![Picture of City](https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg)
