@@ -22,6 +22,7 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <title>Healthopolis</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <header role="banner">
@@ -35,9 +36,23 @@
         <button type="submit" class="searchBtn">Search</button>
     </form>
 </div>
+<!---Fill in example city, for initial load-->
+<div class="results1" role="results from air-quality api">
+    <h1>Here's an Example</h1>
+
+    <h2>City Health Rating: 5.0 "Good"</h2>
+</div>
+
+<div class="results2" role="results from wikipedia api">
+</div>
+
+<div class="results3" role="results from news api">
+</div>
+
 </main>
 <footer>
     <p>Developed by Solomon Zelenko</p>
 </footer>
-</body>
+<script src="main.js"></script>
+</body> 
 </html>
