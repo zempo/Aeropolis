@@ -16,6 +16,7 @@
 
 5. Be sure to checkout any news & general information about your city! 
 
-<img src="drawing.jpg" alt="drawing" height="200" width="600"/>
+<img src="https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg" alt="drawing" height="200" width="600"/>
 
 ![Picture of City](https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg)
+ 
