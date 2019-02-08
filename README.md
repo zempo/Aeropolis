@@ -1,10 +1,10 @@
-## Health-opolis!
+# Health-opolis!
 
-### See it live!
+## See it live!
 
-#### [Here](https://zempo.github.io/portfolio/)
+### [Here](https://zempo.github.io/portfolio/)
 
-### How does it work?
+## How does it work?
 
 1. Type the name of your city into the search bar.
 
@@ -16,7 +16,7 @@
 
 5. Be sure to checkout any news & general information about your city! 
 
-<img src="https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg" alt="drawing" height="200" width="600"/>
+<img src="https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg" alt="picture of city" height="200"/>
 
 ![Picture of City](https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg)
  
