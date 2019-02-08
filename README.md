@@ -13,12 +13,9 @@
 4. Get the relative health of your city -- visualized.
 
 5. Be sure to checkout any news & general information about your city! 
- 
 
-<h1 align="center"> See it live! </h1>
-
-<h2 align="center" href="https://zempo.github.io/Healthopolis/">
+<h1 align="center" href="https://zempo.github.io/Healthopolis/">
 <a align="center" href="https://zempo.github.io/Healthopolis/">
-Here!
+See it Live
 </a> 
-</h2> 
+</h1> 
