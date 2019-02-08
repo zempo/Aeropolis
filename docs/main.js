@@ -100,3 +100,7 @@ function watchForm() {
 $(watchForm);
 
 // encode selector value uri data 
+// disable submit button before selections are made 
+// select country --> loop in regions of country, select region
+// select region --> loop in cities
+// select cities --> enable submit button! 
