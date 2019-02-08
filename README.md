@@ -1,4 +1,4 @@
-# Health-opolis!
+# <img src="https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg" alt="picture of city" height="200"/> Healthopolis!
 
 ## See it live!
 
@@ -15,8 +15,4 @@
 4. Get the relative health of your city. Visualized.
 
 5. Be sure to checkout any news & general information about your city! 
-
-<img src="https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg" alt="picture of city" height="200"/>
-
-![Picture of City](https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg)
  
