@@ -1,6 +1,11 @@
 <h1 align="center"> Healthopolis: How's the Air in Your City? </h1>
 
 <img src="https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg" alt="picture of city" height="200" width="898" />
+<h1 align="center" href="https://zempo.github.io/Healthopolis/">
+<a align="center" href="https://zempo.github.io/Healthopolis/">
+See it Live
+</a> 
+</h1> 
 
 ## How does it work?
 
@@ -14,8 +19,3 @@
 
 5. Be sure to checkout any news & general information about your city! 
 
-<h1 align="center" href="https://zempo.github.io/Healthopolis/">
-<a align="center" href="https://zempo.github.io/Healthopolis/">
-See it Live
-</a> 
-</h1> 
