@@ -2,7 +2,7 @@
 
 ### See it live!
 
-[#### Here](https://zempo.github.io/portfolio/)
+#### [Here](https://zempo.github.io/portfolio/)
 
 ### How does it work?
 
