@@ -1,4 +1,6 @@
-# <img src="https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg" alt="picture of city" height="200"/> Healthopolis!
+# Healthopolis: How's the Air in Your City?
+
+<img src="https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg" alt="picture of city" height="200" width="898" />
 
 ## See it live!
 
