@@ -4,6 +4,8 @@
 
 #### [Here](https://zempo.github.io/portfolio/)
 
+![Picture of City](https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg)
+
 ### How does it work?
 
 1. Type the name of your city into the search bar.
