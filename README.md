@@ -10,11 +10,11 @@
 
 3. Click 'Search'.
 
-4. Get the relative health of your city. Visualized.
+4. Get the relative health of your city -- visualized.
 
 5. Be sure to checkout any news & general information about your city! 
  
 
-## See it live!
+<h1 align="center"> See it live! </h1>
 
-### [Here](https://zempo.github.io/Healthopolis/)
+<h2 align="center"> [Here](https://zempo.github.io/Healthopolis/) </h2>
