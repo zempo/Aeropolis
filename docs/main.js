@@ -4,7 +4,19 @@
 Notes
 
 Air Quality Key: 
-Air Quality Endpoint:
+Air Quality Endpoints:
+
+https://api.airvisual.com/v2/countries?key=CpizzCTn5NTozBHEW
+supported countries 
+
+https://api.airvisual.com/v2/states?country=Canada&key=CpizzCTn5NTozBHEW
+supported states 
+
+https://api.airvisual.com/v2/cities?state=Colorado&country=USA&key=CpizzCTn5NTozBHEW
+supported cities 
+
+http://api.airvisual.com/v2/city?city=Los%20Angeles&state=California&country=USA&key=CpizzCTn5NTozBHEW
+city data 
 
 Wikipedia Key:
 Wikipedia Endpoint:
@@ -13,7 +25,7 @@ News Key:
 News Endpoint: 
 */
 
-const apiKey1 = 'key1';
+const apiKey1 = 'CpizzCTn5NTozBHEW';
 const baseURL1 = 'url1';
 
 const apiKey2 = 'key2';
@@ -22,7 +34,7 @@ const baseURL2 = 'url2';
 const apiKey3 = 'key3';
 const baseURL3 = 'url3';
 
-console.log('Script Loaded: Waiting for Input...');
+console.log('Script Loaded! Waiting for Input...');
 
 function formatParams(params) {
     // use object keys method 
@@ -84,3 +96,7 @@ function watchForm() {
         console.log(`Getting results for ${city}`);
     });
 }
+
+$(watchForm);
+
+// encode selector value uri data 
