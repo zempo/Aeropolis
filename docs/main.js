@@ -151,6 +151,20 @@ function displayAQ(responseJson3) {
            <p>There is negligible overall risk to the entire population. This city is among the healthiest, in terms of air quality.</p>`);
            // 1 small white cloud w/ common pollutant
            // dark-green bar below city vector, 100%
+            mymap.flyTo([latitude, longitude], 9);
+            let marker = L.marker([latitude, longitude])
+            marker.addTo(mymap);
+            const popup = marker.bindPopup(`<b>${city}, ${country}: ${aqi}</b>`);
+            let circle = L.circle([latitude, longitude], {
+                color: 'green',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 2000 
+            })
+            setTimeout( () => {
+                circle.addTo(mymap);
+                popup.openPopup(); 
+             }, 2800);
            // ^_^ excited sun!
     } else if (aqi > 25 && aqi <= 50) {
         $('.results1').append(
@@ -159,6 +173,20 @@ function displayAQ(responseJson3) {
             <p>There might be some risky areas, such as factories. Pollution is rarely an issue.</p>`);
             // 2 small gray clouds w/ common pollutant
             // medium-green bar below city vector, 87.5%
+            mymap.flyTo([latitude, longitude], 9);
+            let marker = L.marker([latitude, longitude])
+            marker.addTo(mymap);
+            const popup = marker.bindPopup(`<b>${city}, ${country}: ${aqi}</b>`);
+            let circle = L.circle([latitude, longitude], {
+                color: 'blue',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 2000 
+            })
+            setTimeout( () => {
+                circle.addTo(mymap);
+                popup.openPopup(); 
+             }, 2800);
             // :) happy sun
     } else if (aqi > 50 && aqi <= 100) {
         $('.results1').append(
@@ -167,6 +195,20 @@ function displayAQ(responseJson3) {
             <p>There is low risk overall. However, certain pollutants will affect vulnerable groups.</p>`);
             // 2 clouds, 1 small gray, 1 medium gray 
             // light-green below city vector, 75%
+            mymap.flyTo([latitude, longitude], 9);
+            let marker = L.marker([latitude, longitude])
+            marker.addTo(mymap);
+            const popup = marker.bindPopup(`<b>${city}, ${country}: ${aqi}</b>`);
+            let circle = L.circle([latitude, longitude], {
+                color: 'purple',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 2000 
+            })
+            setTimeout( () => {
+                circle.addTo(mymap);
+                popup.openPopup(); 
+             }, 2800);
             // smirking sun 
     } else if (aqi > 100 && aqi <= 125) {
         $('.results1').append(
@@ -175,6 +217,20 @@ function displayAQ(responseJson3) {
             <p>Vulnerable groups are more likely to be affected. Warnings might be issued.</p>`);
             // 3 clouds, 2 small gray, 1 medium gray
             // bright yellow, 62.5%
+            mymap.flyTo([latitude, longitude], 9);
+            let marker = L.marker([latitude, longitude])
+            marker.addTo(mymap);
+            const popup = marker.bindPopup(`<b>${city}, ${country}: ${aqi}</b>`);
+            let circle = L.circle([latitude, longitude], {
+                color: 'orange',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 2000 
+            })
+            setTimeout( () => {
+                circle.addTo(mymap);
+                popup.openPopup(); 
+             }, 2800);
             // -_- concerned sun, 1 sweat drop, meh-face
     } else if (aqi > 125 && aqi <= 150) {
         $('.results1').append(
@@ -183,6 +239,20 @@ function displayAQ(responseJson3) {
             <p>Vulnerable groups are more likely to be affected -- with some hospitalizations taking place. Warnings aren't uncommon.</p>`);
             // 4 clouds, 3 small gray, 1 medium gray
             // orange, 50% 
+            mymap.flyTo([latitude, longitude], 9);
+            let marker = L.marker([latitude, longitude])
+            marker.addTo(mymap);
+            const popup = marker.bindPopup(`<b>${city}, ${country}: ${aqi}</b>`);
+            let circle = L.circle([latitude, longitude], {
+                color: 'black',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 2000 
+            })
+            setTimeout( () => {
+                circle.addTo(mymap);
+                popup.openPopup(); 
+             }, 2800);
             // :/ ...sweating sun, grimacing, 2 drops 
     } else if (aqi > 150 && aqi <= 200) {
         $('.results1').append( 
@@ -191,6 +261,20 @@ function displayAQ(responseJson3) {
             <p>Everyone is likely to experience some effects. Vulnerable groups have limited mobility.</p>`);
             // 5 clouds, 3 small gray, 2 medium gray
             // red, 37.5%
+            mymap.flyTo([latitude, longitude], 9);
+            let marker = L.marker([latitude, longitude])
+            marker.addTo(mymap);
+            const popup = marker.bindPopup(`<b>${city}, ${country}: ${aqi}</b>`);
+            let circle = L.circle([latitude, longitude], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 2000 
+            })
+            setTimeout( () => {
+                circle.addTo(mymap);
+                popup.openPopup(); 
+             }, 2800);
             // :D, sun wearing surgical mask
     } else if (aqi > 200 && aqi <= 300) {
         $('.results1').append(
@@ -199,6 +283,20 @@ function displayAQ(responseJson3) {
             <p>Health Alerts are common. Pollution directly impacts all members of the population. Serious effects are seen.</p>`);
             // 6 clouds, 3 small gray, 3 medium gray
             // purple, 25%
+            mymap.flyTo([latitude, longitude], 9);
+            let marker = L.marker([latitude, longitude])
+            marker.addTo(mymap);
+            const popup = marker.bindPopup(`<b>${city}, ${country}: ${aqi}</b>`);
+            let circle = L.circle([latitude, longitude], {
+                color: 'white',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 2000  
+            })
+            setTimeout( () => {
+                circle.addTo(mymap);
+                popup.openPopup(); 
+             }, 2800);
             // : D, sun wearing WWI gas-mask
     } else if (aqi > 300) {
         $('.results1').append(
@@ -207,6 +305,20 @@ function displayAQ(responseJson3) {
             <p>Emergency Conditions are met. Serious health effects are common. This city is among the most unhealthy in the world.</p>`);
             // 6 clouds, 2 small gray, 4 medium gray
             // maroon, 12.5%
+            mymap.flyTo([latitude, longitude], 9);
+            let marker = L.marker([latitude, longitude])
+            marker.addTo(mymap);
+            const popup = marker.bindPopup(`<b>${city}, ${country}: ${aqi}</b>`);
+            let circle = L.circle([latitude, longitude], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 2000 
+            })
+            setTimeout( () => {
+                circle.addTo(mymap);
+                popup.openPopup(); 
+             }, 2800);
             // : O, sun wearing hazmat suit 
     } else { 
         $('.results1').append(`<h2>Error 404: Air Quality Index data is absent from this city.</h2>`);
@@ -215,20 +327,21 @@ function displayAQ(responseJson3) {
     
     // mymap.remove(); 
     // mymap = L.map('mapid').setView([0, 0], 1);
-   mymap.flyTo([latitude, longitude], 11);
+   /* 
+   mymap.flyTo([latitude, longitude], 9);
    let marker = L.marker([latitude, longitude])
    marker.addTo(mymap);
-   const popup = marker.bindPopup(`${city}: ${aqi}`);
+   const popup = marker.bindPopup(`<b>${city}, ${country}: ${aqi}</b>`);
    let circle = L.circle([latitude, longitude], {
        color: 'red',
        fillColor: '#f03',
        fillOpacity: 0.5,
-       radius: 800 
+       radius: 2000 
    })
    setTimeout( () => {
        circle.addTo(mymap);
        popup.openPopup(); 
-    }, 2000);
+    }, 2800); */ 
 
    console.log(responseJson3); 
 
