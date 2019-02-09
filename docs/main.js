@@ -23,6 +23,21 @@ Wikipedia Endpoint:
 
 News Key:
 News Endpoint: 
+
+common errors: 
+403, forbidden (too many requests)
+
+$.change.event @ main.js:52
+dispatch @ jquery.min.js:2
+y.handle @ jquery.min.js:2
+ListPicker._handleKeyDown
+index.html:1 
+Access to fetch at
+ 'https://api.airvisual.com/v2/states?country=Sweden&key=CpizzCTn5NTozBHEW' 
+ from origin 'null' has been blocked by CORS policy:
+  No 'Access-Control-Allow-Origin' header is present on the requested resource.
+ If an opaque response serves your needs, set the request's mode to 'no-cors'
+  to fetch the resource with CORS disabled.
 */
 
 /* ///////////////// Input /////////////////// */
@@ -32,6 +47,8 @@ News Endpoint:
 // select region --> loop in cities
 // select cities --> enable submit button! 
 function updateRegion(responseJson) {
+    const country = $('#country option:selected').val(); 
+    $('#region').append(`<option value="">Regions of ${country}</option>`);
 
     for (let i = 0; i < responseJson.data.length; i++) {
         let opt = responseJson.data[i].state;  
@@ -39,13 +56,15 @@ function updateRegion(responseJson) {
         $('#region').append(`<option value="${opt}">${opt}</option>`);
     }
 }
+function updateCity(responseJson2) {
+    console.log(responseJson2);
+}
 
 function watchSelect() {
     $('#country').change(event => {
         const country = $('#country option:selected').val();
  
         $('#region').empty();
-        $('#city').empty();
         
         const url = `https://api.airvisual.com/v2/states?country=${country}&key=CpizzCTn5NTozBHEW`;
 
@@ -53,10 +72,28 @@ function watchSelect() {
             if (res.ok) {
                 return res.json();
             }
-            alert(`Sorry, something went wrong. Check your Connection`);
+            alert(`Sorry, something went wrong. Check your connection.`);
         }).then(responseJson => {
             updateRegion(responseJson); 
         });
+    });
+    
+    $('#region').change(event => {
+        const country = $('#country option:selected').val();
+        const region = $('#region option:selected').val();
+
+        $('#city').empty();
+
+        const url = `https://api.airvisual.com/v2/cities?state=${region}&country=${country}&key=CpizzCTn5NTozBHEW`;
+
+        fetch(url).then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            alert(`Sorry, something went wrong. Check your connection.`)
+        }).then(responseJson2 => {
+            updateCity(responseJson2); 
+        }); 
     });
 } 
 
