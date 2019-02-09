@@ -197,7 +197,7 @@ hazardous  300 < x, avoid city, if possible. Emergency conditions might be decla
             <p>There is low risk overall. However, certain pollutants will affect vulnerable groups.</p>`);
             // 2 clouds, 1 small gray, 1 medium gray 
             // light-green below city vector, 75%
-            // smirking sun
+            // smirking sun 
     } else if (aqi > 100 && aqi <= 125) {
         $('.results1').append(
             `<h2>The Air Quality for ${city} is ${aqi}</h2>
@@ -213,9 +213,9 @@ hazardous  300 < x, avoid city, if possible. Emergency conditions might be decla
             <p>Vulnerable groups are more likely to be affected -- with some hospitalizations taking place. Warnings aren't uncommon.</p>`);
             // 4 clouds, 3 small gray, 1 medium gray
             // orange, 50% 
-            // :/ ...sweating sun, grimacing, 2 drops
+            // :/ ...sweating sun, grimacing, 2 drops 
     } else if (aqi > 150 && aqi <= 200) {
-        $('.results1').append(
+        $('.results1').append( 
             `<h2>The Air Quality for ${city} is ${aqi}</h2>
             <h3>This city has poor health! 4.0/8.0</h3>
             <p>Everyone is likely to experience some effects. Vulnerable groups have limited mobility.</p>`);
@@ -263,7 +263,7 @@ function fetchAQ(city, region, country) {
     const country2 = encodeURI(country);
     const region2 = encodeURI(region);
     const city2 = encodeURI(city);
-    const aqURL = `http://api.airvisual.com/v2/city?city=${city2}&state=${region2}&country=${country2}&key=CpizzCTn5NTozBHEW`;
+    const aqURL = `https://api.airvisual.com/v2/city?city=${city2}&state=${region2}&country=${country2}&key=CpizzCTn5NTozBHEW`;
     console.log(aqURL);  
  
     fetch(aqURL).then(res => { 
