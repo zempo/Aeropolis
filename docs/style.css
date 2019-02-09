@@ -16,3 +16,16 @@ results2             results3
 (world map, if USA || Canada || Mexico, fill in North America)
 
 */
+
+/*
+if button disabled or enabled 
+:disabled  or :enabled 
+*/
+
+/*
+button:disabled {
+    background: red;
+    color: white;
+    border: none;
+}
+*/
