@@ -33,11 +33,18 @@ News Endpoint:
 // select cities --> enable submit button! 
 function watchSelect() {
     $('#country').change(event => {
-
+        const country = $('#country option:selected').val();
+ 
         $('#region').empty();
         $('#city').empty();
+        
+        const url = `https://api.airvisual.com/v2/states?country=${country}&key=CpizzCTn5NTozBHEW`;
+
+        console.log(url); 
+
+        // fetch 
     });
-}
+} 
 
 $(watchSelect);
 
