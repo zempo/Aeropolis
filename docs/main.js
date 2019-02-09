@@ -25,6 +25,24 @@ News Key:
 News Endpoint: 
 */
 
+/* ///////////////// Input /////////////////// */
+// encode selector value uri data 
+// disable submit button before selections are made 
+// select country --> loop in regions of country, select region
+// select region --> loop in cities
+// select cities --> enable submit button! 
+function watchSelect() {
+    $('#country').change(event => {
+
+        $('#region').empty();
+        $('#city').empty();
+    });
+}
+
+$(watchSelect);
+
+/* ///////////////// Results /////////////////// */
+
 const apiKey1 = 'CpizzCTn5NTozBHEW';
 const baseURL1 = 'url1';
 
@@ -98,9 +116,3 @@ function watchForm() {
 }
 
 $(watchForm);
-
-// encode selector value uri data 
-// disable submit button before selections are made 
-// select country --> loop in regions of country, select region
-// select region --> loop in cities
-// select cities --> enable submit button! 
