@@ -31,6 +31,15 @@ News Endpoint:
 // select country --> loop in regions of country, select region
 // select region --> loop in cities
 // select cities --> enable submit button! 
+function updateRegion(responseJson) {
+
+    for (let i = 0; i < responseJson.data.length; i++) {
+        let opt = responseJson.data[i].state;  
+        
+        $('#region').append(`<option value="${opt}">${opt}</option>`);
+    }
+}
+
 function watchSelect() {
     $('#country').change(event => {
         const country = $('#country option:selected').val();
@@ -40,9 +49,14 @@ function watchSelect() {
         
         const url = `https://api.airvisual.com/v2/states?country=${country}&key=CpizzCTn5NTozBHEW`;
 
-        console.log(url); 
-
-        // fetch 
+        fetch(url).then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            alert(`Sorry, something went wrong. Check your Connection`);
+        }).then(responseJson => {
+            updateRegion(responseJson); 
+        });
     });
 } 
 
