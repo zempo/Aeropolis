@@ -129,8 +129,6 @@ function watchSelect() {
     });
 }  
 
-$(watchSelect);
-
 /* ///////////////// Results /////////////////// */
 
 const apiKey1 = 'CpizzCTn5NTozBHEW';
@@ -160,18 +158,9 @@ function displayAQ(responseJson3) {
      for the southern and northern hemisphere respectively.
       Longitude is in the range -180 and +180
       specifying coordinates west and east of the Prime Meridian, respectively.
-
-    great, <= 25, no overall health risk
-good, 25 < x <= 50, minimal health risk, some risk areas (factories, etc)
-fair, 50 < x <= 100, low risk, some pollutants might affect vulnerable groups
-poor, 100 < x <= 125,  vulnerable groups more likely to be affected, some warnings 
-low, 125 < x <= 150,  vulnerable groups more likely to be affected + long term concerns increase, some warnings 
-unhealthy 150 < x <= 200,  health effects likely for everyone, sensitive groups more likely to need hospitalization
-very unhealthy 200 < x <= 300,  Many jurisdictions will issue a health alert, hospitalizations more common for general population
-hazardous  300 < x, avoid city, if possible. Emergency conditions might be declared.
-                  Entire population is likely to be affected
     */
    const aqi = responseJson3.data.current.pollution.aqius;
+   const [longitude, latitude] = responseJson3.data.location.coordinates;
    const city = $('#city').val();
    const country = $('#country').val();
    $('.results1').empty();
@@ -246,12 +235,21 @@ hazardous  300 < x, avoid city, if possible. Emergency conditions might be decla
 
    console.log(responseJson3);
 
-   console.log(aqi);  
+   console.log([longitude, latitude]);  
 }
 
-function displayWiki() {
+function initializeMap() {
     // display any relevant data 
+    const mymap = L.map('mapid').setView([0, 0], 1);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q'
+}).addTo(mymap);
 }
+
 
 function displayNews() {
     // display any relevant data 
@@ -278,14 +276,6 @@ function fetchAQ(city, region, country) {
     });  
 }
 
-function fetchWiki() {
-    // fetch wiki data 
-    // log info or error message (exclamation point in div)
-    // 'Error: Wikipedia Doesn't have info about this city...yet...
-    // link to creating wikipedia articles 
-    console.log('Fetched Wikipedia');
-}
-
 function fetchNews(city) {
     // grab news data
     // log info or error message (exclamation point in div)
@@ -296,7 +286,6 @@ function fetchNews(city) {
 
 function fetchAll(city, region, country) {
     fetchAQ(city, region, country);
-    fetchWiki();
     fetchNews(city); 
 }
 
@@ -312,5 +301,10 @@ function watchForm() {
     });
 }
 
+/*///////////////////// FUNCTION CALLS //////////////////////////// */
+
+$(initializeMap);
+$(watchSelect);
 $(watchForm);
+
  
