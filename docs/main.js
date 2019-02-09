@@ -173,10 +173,11 @@ hazardous  300 < x, avoid city, if possible. Emergency conditions might be decla
     */
    const aqi = responseJson3.data.current.pollution.aqius;
    const city = $('#city').val();
+   const country = $('#country').val();
    $('.results1').empty();
    if (aqi <= 25) {
-       $('.results1').append(
-           `<h2>The Air Quality Index for ${city} is ${aqi}</h2>
+       $('.results1').append( 
+           `<h2>The Air Quality Index for ${city}, ${country} is ${aqi}</h2>
            <h3>This city has excellent health. 8.0/8.0</h3>
            <p>There is negligible overall risk to the entire population. This city is among the healthiest, in terms of air quality.</p>`);
            // 1 small white cloud w/ common pollutant
@@ -184,7 +185,7 @@ hazardous  300 < x, avoid city, if possible. Emergency conditions might be decla
            // ^_^ excited sun!
     } else if (aqi > 25 && aqi <= 50) {
         $('.results1').append(
-            `<h2>The Air Quality for ${city} is ${aqi}</h2>
+            `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
             <h3>This city has good health! 7.0/8.0</h3>
             <p>There might be some risky areas, such as factories. Pollution is rarely an issue.</p>`);
             // 2 small gray clouds w/ common pollutant
@@ -192,7 +193,7 @@ hazardous  300 < x, avoid city, if possible. Emergency conditions might be decla
             // :) happy sun
     } else if (aqi > 50 && aqi <= 100) {
         $('.results1').append(
-            `<h2>The Air Quality for ${city} is ${aqi}</h2>
+            `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
             <h3>This city has fair health. 6.0/8.0</h3>
             <p>There is low risk overall. However, certain pollutants will affect vulnerable groups.</p>`);
             // 2 clouds, 1 small gray, 1 medium gray 
@@ -200,7 +201,7 @@ hazardous  300 < x, avoid city, if possible. Emergency conditions might be decla
             // smirking sun 
     } else if (aqi > 100 && aqi <= 125) {
         $('.results1').append(
-            `<h2>The Air Quality for ${city} is ${aqi}</h2>
+            `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
             <h3>This city is vulnerable. 5.0/8.0</h3>
             <p>Vulnerable groups are more likely to be affected. Warnings might be issued.</p>`);
             // 3 clouds, 2 small gray, 1 medium gray
@@ -208,32 +209,32 @@ hazardous  300 < x, avoid city, if possible. Emergency conditions might be decla
             // -_- concerned sun, 1 sweat drop, meh-face
     } else if (aqi > 125 && aqi <= 150) {
         $('.results1').append(
-            `<h2>The Air Quality for ${city} is ${aqi}</h2>
-            <h3>This city has declining health!</h3>
+            `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
+            <h3>This city has declining health! 4.0/8.0</h3>
             <p>Vulnerable groups are more likely to be affected -- with some hospitalizations taking place. Warnings aren't uncommon.</p>`);
             // 4 clouds, 3 small gray, 1 medium gray
             // orange, 50% 
             // :/ ...sweating sun, grimacing, 2 drops 
     } else if (aqi > 150 && aqi <= 200) {
         $('.results1').append( 
-            `<h2>The Air Quality for ${city} is ${aqi}</h2>
-            <h3>This city has poor health! 4.0/8.0</h3>
+            `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
+            <h3>This city has poor health! 3.0/8.0</h3>
             <p>Everyone is likely to experience some effects. Vulnerable groups have limited mobility.</p>`);
             // 5 clouds, 3 small gray, 2 medium gray
             // red, 37.5%
             // :D, sun wearing surgical mask
     } else if (aqi > 200 && aqi <= 300) {
         $('.results1').append(
-            `<h2>The Air Quality for ${city} is ${aqi}</h2>
-            <h3>This city is unhealthy!</h3>
+            `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
+            <h3>This city is unhealthy! 2.0/8.0</h3>
             <p>Health Alerts are common. Pollution directly impacts all members of the population. Serious effects are seen.</p>`);
             // 6 clouds, 3 small gray, 3 medium gray
             // purple, 25%
             // : D, sun wearing WWI gas-mask
     } else if (aqi > 300) {
         $('.results1').append(
-            `<h2>The Air Quality for ${city} is ${aqi}</h2>
-            <h3>This city is hazardous!</h3>
+            `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
+            <h3>This city is hazardous! 1.0/8.0</h3>
             <p>Emergency Conditions are met. Serious health effects are common. This city is among the most unhealthy in the world.</p>`);
             // 6 clouds, 2 small gray, 4 medium gray
             // maroon, 12.5%
