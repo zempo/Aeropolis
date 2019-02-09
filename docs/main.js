@@ -56,8 +56,18 @@ function updateRegion(responseJson) {
         $('#region').append(`<option value="${opt}">${opt}</option>`);
     }
 }
+
 function updateCity(responseJson2) {
-    console.log(responseJson2);
+    const region = $('#region option:selected').val();
+
+    $('#city').append(`<option value="">Cities of ${region}</option>`);
+
+    for (let i = 0; i < responseJson2.data.length; i++) {
+        let opt = responseJson2.data[i].city;  
+        
+        $('#city').append(`<option value="${opt}">${opt}</option>`);
+    } 
+
 }
 
 function watchSelect() {
@@ -77,7 +87,7 @@ function watchSelect() {
             updateRegion(responseJson); 
         });
     });
-    
+
     $('#region').change(event => {
         const country = $('#country option:selected').val();
         const region = $('#region option:selected').val();
