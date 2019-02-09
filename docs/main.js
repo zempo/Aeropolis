@@ -131,7 +131,10 @@ function displayAQ() {
     // log airquality data to console
 
     // update results1 text 
-    // affect other elements on page 
+    // affect other elements on page
+    
+    // algorithm with responseJson.data.pollution.aqius
+    // aqius, us air quality standards 
 }
 
 function displayWiki() {
