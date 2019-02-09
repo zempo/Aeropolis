@@ -132,33 +132,13 @@ function watchSelect() {
 /* ///////////////// Results /////////////////// */
 
 const apiKey1 = 'CpizzCTn5NTozBHEW';
-const baseURL1 = 'url1';
-
-const apiKey2 = 'key2';
-const baseURL2 = 'url2';
-
-const apiKey3 = 'key3';
-const baseURL3 = 'url3';
+const apiKey2 = 'pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q';
+const apiKey3 = 'key3'; 
+let mymap;
 
 console.log('Script Loaded! Waiting for Input...');
 
-function formatParams(params) {
-    // use object keys method 
-    // encode + join
-}
-
 function displayAQ(responseJson3) {
-    // affect other elements on page
-    
-    // aqius, us air quality standards 
-    /*
-    <div class="results1" role="results from air-quality api">
-
-    The valid range of latitude in degrees is -90 and +90
-     for the southern and northern hemisphere respectively.
-      Longitude is in the range -180 and +180
-      specifying coordinates west and east of the Prime Meridian, respectively.
-    */
    const aqi = responseJson3.data.current.pollution.aqius;
    const [longitude, latitude] = responseJson3.data.location.coordinates;
    const city = $('#city').val();
@@ -232,20 +212,38 @@ function displayAQ(responseJson3) {
         $('.results1').append(`<h2>Error 404: Air Quality Index data is absent from this city.</h2>`);
         // funny error message 
     }
+    
+    // mymap.remove(); 
+    // mymap = L.map('mapid').setView([0, 0], 1);
+   mymap.flyTo([latitude, longitude], 11);
+   let marker = L.marker([latitude, longitude])
+   marker.addTo(mymap);
+   const popup = marker.bindPopup(`${city}: ${aqi}`);
+   let circle = L.circle([latitude, longitude], {
+       color: 'red',
+       fillColor: '#f03',
+       fillOpacity: 0.5,
+       radius: 800 
+   })
+   setTimeout( () => {
+       circle.addTo(mymap);
+       popup.openPopup(); 
+    }, 2000);
 
-   console.log(responseJson3);
+   console.log(responseJson3); 
 
    console.log([longitude, latitude]);  
 }
 
 function initializeMap() {
     // display any relevant data 
-    const mymap = L.map('mapid').setView([0, 0], 1);
+    mymap = L.map('mapid')
+    mymap.setView([0, 0], 1);
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
-    id: 'mapbox.streets',
+    id: 'mapbox.satellite',
     accessToken: 'pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q'
 }).addTo(mymap);
 }
