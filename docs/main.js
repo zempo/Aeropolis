@@ -18,6 +18,16 @@ supported cities
 http://api.airvisual.com/v2/city?city=Los%20Angeles&state=California&country=USA&key=CpizzCTn5NTozBHEW
 city data 
 
+great, <= 25, no overall health risk
+good, 25 < x <= 50, minimal health risk, some risk areas (factories, etc)
+fair, 50 < x <= 100, low risk, some pollutants might affect vulnerable groups
+poor, 100 < x <= 125,  vulnerable groups more likely to be affected, some warnings 
+low, 125 < x <= 150,  vulnerable groups more likely to be affected + long term concerns increase, some warnings 
+unhealthy 150 < x <= 200,  health effects likely for everyone, sensitive groups more likely to need hospitalization
+very unhealthy 200 < x <= 300,  Many jurisdictions will issue a health alert, hospitalizations more common for general population
+hazardous  300 < x, avoid city, if possible. Emergency conditions might be declared.
+                  Entire population is likely to be affected
+
 Wikipedia Key:
 Wikipedia Endpoint:
 
