@@ -21,13 +21,13 @@ See it Live
 
 ## Project Sources 
 
-1. [Information on Air Quality Index Values](https://airnow.gov/index.cfm?action=aqibasics.aqi): For Calculating 
+1. [Information on Air Quality Index Values](https://airnow.gov/index.cfm?action=aqibasics.aqi): The main reference for determining city health values.
 
 2. [AirVisual:](https://api-docs.airvisual.com/) The Air Quality API used to determine cities with monitoring stations AND their air quality.
 
-3. [News API:](https://newsapi.org/) For any news articles pertaining to each city searched.
+3. [Leaflet.js:](https://leafletjs.com/examples/quick-start/) For mapping each city
 
-4. [Wikipedia API:](https://www.mediawiki.org/wiki/API:Tutorial) For generalized overview of each city searched.
+3. [News API:](https://newsapi.org/) For any news articles pertaining to each city searched & it's environmental health.
 
 ## Disclaimer About Air Quality Calculations 
 
