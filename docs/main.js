@@ -258,7 +258,7 @@ function displayAQ(responseJson3) {
             let circle = L.circle([latitude, longitude], {
                 color: '#db9200',
                 fillColor: '#ffb523',
-                fillOpacity: 0.5,
+                fillOpacity: 0.6,
                 radius: 3000 
             })
             setTimeout( () => {
