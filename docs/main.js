@@ -365,16 +365,19 @@ function displayNews(responseJson4) {
     console.log(responseJson4);
     console.log(responseJson4.totalResults);
     // erase Atlantis data
-    let noResults = [`Sometimes, no news is good news!`,`Error: All journalists in this city use invisible ink.`, `Haha, I guess people aren't tweeting about your city that much, huh?`, `Well, it seems as if nobody is writing about this city. Would you do the honors?`];
+    let noResults = [`Sometimes, no news is good news!`,
+    `Error: All journalists in this city use invisible ink.`,
+    `Haha, I guess people aren't tweeting about your city that much, huh?`,
+    `Well, it seems as if nobody is writing about this city. Would you do the honors?`];
     // length of 4 
     let pickResponse = Math.floor((Math.random() * noResults.length));
-
-    console.log(pickResponse);
  
     for (let i = 0; i < responseJson4.articles.length & i < 10; i++) {
 
-        $('.results2').append(`<h3>${responseJson4.articles[i].title}</h3>`); 
- 
+        $('.results2').append(
+            `<h3>${responseJson4.articles[i].title}</h3>
+            <img src="${responseJson4.articles[i].urlToImage}" alt="article${i} image">`);
+
     }
     if (responseJson4.totalResults == 0) {
         $('.results2').append(`<h3>${noResults[pickResponse]}</h3>`);    

@@ -29,8 +29,11 @@ See it Live
 
 4. [Mapbox.com](https://www.mapbox.com/)
 
-5. [News API:](https://newsapi.org/) For any news articles pertaining to each city searched & it's environmental health.
+5. [News API:](https://newsapi.org/) For any news articles pertaining to each city searched & its environmental health.
 
+## Sources for onload example
+
+1. [wave image](http://3.bp.blogspot.com/-K-hWaquRMIA/UXsRrLBshJI/AAAAAAAAASg/BmLEdogAZDw/s1600/GW-0022.jpg)
 
 
 ## Disclaimer About Air Quality Calculations 
