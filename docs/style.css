@@ -1,63 +1,39 @@
 /*
 smooth selector transitions, :active, slow open?
 
-make layout as such for desktop (use grid)
-stack content on mobile 
-
-           input
-
-         results 1
-
-results2             results3
-
-         City Vector 
-
-      Maybe Continent Vector? 
-(world map, if USA || Canada || Mexico, fill in North America)
-
-*/
-
-/*
 if button disabled or enabled 
 :disabled  or :enabled 
-
-Spoke to some friends.
-
-User Issues | 
-
-Error messages could be more helpful
-Better to fill page content with text 
-Perhaps create error image 
 
 News articles still show alt-text
 need to hide images if there is a null image source 
 Or no image source
 
-User feedback | 
-
-Users would like input to be somewhat easier to use 
-
-Style add-ons | 
+Fix accidental zoom of map (move to bottom? make map part of slide out menu?)
 
 Finish creating all proposed display vectors 
 Use grid 
 Place city vector above map 
 Place news in side-menu (click to expand): pulse animation?
+
+use 'sticky clouds', scroll attachment and combining multiple backgrounds 
+file:///home/solomon/Odin/test5.html 
+             and 
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds
 */
 * {
     box-sizing: border-box;
 }
 
 body {
-    display: grid;
+    display: grid; 
 }
 
 header, .input, .results1, .results2, footer {
     text-align: center;
 }
 header img {
-    width: 80%;
-    height: 40vw;
+    width: 75%; 
+    height: 38vw;
     object-fit: cover;
     object-position: center bottom;
 }
