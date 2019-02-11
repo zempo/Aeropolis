@@ -372,7 +372,7 @@ function displayNews(responseJson4) {
     // length of 4 
     let pickResponse = Math.floor((Math.random() * noResults.length));
 
-    $('.results2').append(`<h2>Health News From Around Your City</h2>`); 
+    $('.results2').append(`<h2>Health-Related News From Around Your City</h2>`); 
   
     for (let i = 0; i < responseJson4.articles.length & i < 10; i++) {
        /* if (responseJson4.articles.urlToImage === null) { 
