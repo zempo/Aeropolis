@@ -114,7 +114,7 @@ function watchSelect() {
             if (res.ok) {
                 return res.json();
             }
-            alert(`Too many requests! Please wait 1 minute.`);
+            alert(`Too many requests! Please wait 30 seconds.`);
         }).then(responseJson => {
             updateRegion(responseJson); 
         });
@@ -134,7 +134,7 @@ function watchSelect() {
             if (res.ok) {
                 return res.json();
             }
-            alert(`Too many requests! Please wait 1 minute.`);
+            alert(`Too many requests! Please wait 30 seconds.`);
         }).then(responseJson2 => {
             updateCity(responseJson2); 
         }); 
@@ -371,17 +371,30 @@ function displayNews(responseJson4) {
     `Well, it seems as if nobody is writing about this city. Would you do the honors?`];
     // length of 4 
     let pickResponse = Math.floor((Math.random() * noResults.length));
- 
+
+    $('.results2').append(`<h2>Health News From Around Your City</h2>`); 
+  
     for (let i = 0; i < responseJson4.articles.length & i < 10; i++) {
+       /* if (responseJson4.articles.urlToImage === null) { 
+            $('.results2').append(
+                `<h3><a href="${responseJson4.articles[i].url}">${responseJson4.articles[i].title}</a></h3>
+                <p></p>`);
+            continue;
 
+            // hide image, figure out null to hide image 
+       } */ 
         $('.results2').append(
-            `<h3>${responseJson4.articles[i].title}</h3>
-            <img src="${responseJson4.articles[i].urlToImage}" alt="article${i} image">`);
-
-    }
-    if (responseJson4.totalResults == 0) {
-        $('.results2').append(`<h3>${noResults[pickResponse]}</h3>`);    
+            `<h3><a href="${responseJson4.articles[i].url}">${responseJson4.articles[i].title}</a></h3>
+            <p><b>From ${responseJson4.articles[i].source.name}</b></p>
+            <p><b>By ${responseJson4.articles[i].author}</b></p>
+            <img src="${responseJson4.articles[i].urlToImage}" alt="Image for article ${i} unavailable"> 
+            <p>${responseJson4.articles[i].description}</p>`); 
     } 
+
+    if (responseJson4.totalResults == 0) {
+        $('.results2').empty();
+        $('.results2').append(`<h3>${noResults[pickResponse]}</h3>`);    
+    }  
 }
 
 function fetchAQ(city, region, country) {
@@ -396,29 +409,30 @@ function fetchAQ(city, region, country) {
         if (res.ok) {
             return res.json();
         } 
-        alert(`That's odd. It appears this city's data is temporarily unavailable. Try another city =) . Our sincere apologies. =(`);
+        alert(`That's odd. It appears this city's data is temporarily unavailable. Try another city =) Our sincere apologies =(`);
         // add funny error message image 
     }).then(responseJson3 => {
         displayAQ(responseJson3); 
     });   
-}
+} 
 
 function fetchNews(city, region) {
     // grab news data
-    const cityState = `${encodeURI(region)}%20${encodeURI(city)}%20air%20health`; 
+    // const cityState = `${encodeURI(region)}%20${encodeURI(city)}%20air%20health`;
+    const region2 = `${encodeURI(region)}%20air%20health`;
     const apiKey3 = '13b5bb62016543439061414e0e3274bf';
-    const newsURL = `https://newsapi.org/v2/everything?q=${cityState}&language=en&sortBy=relevancy&apiKey=${apiKey3}`;
+    const newsURL = `https://newsapi.org/v2/everything?q=${region2}&language=en&sortBy=relevancy&apiKey=${apiKey3}`;
     console.log(newsURL);
-
+ 
     fetch(newsURL).then(res => {
         if (res.ok) {
             return res.json();
         }
-        $('.results2').text(`<h2>Sorry, something went wrong with the news (BIIIG Surprise)</h2>
-        <p>!</p>`);  
+        $('.results2').text(`<h2>External-Error: Unable to Retrieve News</h2>
+        <p>!</p>`);   
     }).then(responseJson4 => {
         displayNews(responseJson4);
-    })
+    });
 }
 
 
