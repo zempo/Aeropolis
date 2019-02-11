@@ -20,17 +20,49 @@ results2             results3
 /*
 if button disabled or enabled 
 :disabled  or :enabled 
-*/
 
-/*
-button:disabled {
-    background: red;
-    color: white;
-    border: none;
+Spoke to some friends.
+
+User Issues | 
+
+Error messages could be more helpful
+Better to fill page content with text 
+Perhaps create error image 
+
+News articles still show alt-text
+need to hide images if there is a null image source 
+Or no image source
+
+User feedback | 
+
+Users would like input to be somewhat easier to use 
+
+Style add-ons | 
+
+Finish creating all proposed display vectors 
+Use grid 
+Place city vector above map 
+Place news in side-menu (click to expand): pulse animation?
+*/
+* {
+    box-sizing: border-box;
 }
-*/
 
-#mapid { height: 360px; }
+body {
+    display: grid;
+}
+
+header, .input, .results1, .results2, footer {
+    text-align: center;
+}
+header img {
+    width: 80%;
+    height: 40vw;
+    object-fit: cover;
+    object-position: center bottom;
+}
+
+#mapid { height: 480px; }
 
 .results2 img {
     height: 100px; 
