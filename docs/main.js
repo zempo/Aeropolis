@@ -28,7 +28,7 @@ very unhealthy 200 < x <= 300,  Many jurisdictions will issue a health alert, ho
 hazardous  300 < x, avoid city, if possible. Emergency conditions might be declared.
                   Entire population is likely to be affected
 
-News Key:
+News Key: 13b5bb62016543439061414e0e3274bf
 News Endpoint: 
 
 common errors: 
@@ -143,9 +143,9 @@ function watchSelect() {
 
 /* ///////////////// Results /////////////////// */
 
-const apiKey1 = 'CpizzCTn5NTozBHEW';
-const apiKey2 = 'pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q';
-const apiKey3 = 'key3'; 
+const apiKey1 = 'CpizzCTn5NTozBHEW'; // air quality
+const apiKey2 = 'pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q'; // maps 
+const apiKey3 = '13b5bb62016543439061414e0e3274bf'; // news 
 let mymap;
 
 console.log('Script Loaded! Waiting for Input...');
@@ -259,7 +259,7 @@ function displayAQ(responseJson3) {
                 color: '#db9200',
                 fillColor: '#ffb523',
                 fillOpacity: 0.6,
-                radius: 3000 
+                radius: 3000  
             })
             setTimeout( () => {
                 circle.addTo(mymap);
@@ -337,9 +337,9 @@ function displayAQ(responseJson3) {
         // funny error message 
     }
 
-   console.log(responseJson3); 
-
-   console.log([longitude, latitude]);  
+   // console.log(responseJson3);  
+   // console.log([longitude, latitude]); 
+   // ^For testing  
 }
 
 function initializeMap() {
@@ -353,22 +353,41 @@ function initializeMap() {
     id: 'mapbox.satellite',
     accessToken: 'pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q'
 }).addTo(mymap);
-}
+} 
 
 
-function displayNews() {
+function displayNews(responseJson4) {
     // display any relevant data 
+    // if no articles found, make an array of text responses 'Sometimes
+    // no news, is good news' 'Don't worry, your city still exists', 'error:
+    // journalists mistook this city for Lincoln, Nebraska
+    $('.results2').empty();
+    console.log(responseJson4);
+    console.log(responseJson4.totalResults);
+    // erase Atlantis data
+    let noResults = [`Sometimes, no news is good news!`,`Error: All journalists in this city use invisible ink.`, `Haha, I guess people aren't tweeting about your city that much, huh?`, `Well, it seems as if nobody is writing about this city. Would you do the honors?`];
+    // length of 4 
+    let pickResponse = Math.floor((Math.random() * noResults.length));
+
+    console.log(pickResponse);
+ 
+    for (let i = 0; i < responseJson4.articles.length & i < 10; i++) {
+
+        $('.results2').append(`<h3>${responseJson4.articles[i].title}</h3>`); 
+ 
+    }
+    if (responseJson4.totalResults == 0) {
+        $('.results2').append(`<h3>${noResults[pickResponse]}</h3>`);    
+    } 
 }
 
 function fetchAQ(city, region, country) {
     // fetch aq, update display if there's an error or lack of results 
-    // 'Unfortunately, there's no air quality data for this city yet...'
-    // can request data, here (link to air quality measurement request form)
     const country2 = encodeURI(country);
     const region2 = encodeURI(region);
     const city2 = encodeURI(city);
     const aqURL = `https://api.airvisual.com/v2/city?city=${city2}&state=${region2}&country=${country2}&key=CpizzCTn5NTozBHEW`;
-    console.log(aqURL);  
+    // console.log(aqURL);  
  
     fetch(aqURL).then(res => { 
         if (res.ok) {
@@ -378,20 +397,31 @@ function fetchAQ(city, region, country) {
         // add funny error message image 
     }).then(responseJson3 => {
         displayAQ(responseJson3); 
-    });  
+    });   
 }
 
-function fetchNews(city) {
+function fetchNews(city, region) {
     // grab news data
-    // log info or error message (exclamation point in div)
-    // 'Error: There is no news about your city among English results 
-    console.log(city);
+    const cityState = `${encodeURI(region)}%20${encodeURI(city)}%20air%20health`; 
+    const apiKey3 = '13b5bb62016543439061414e0e3274bf';
+    const newsURL = `https://newsapi.org/v2/everything?q=${cityState}&language=en&sortBy=relevancy&apiKey=${apiKey3}`;
+    console.log(newsURL);
+
+    fetch(newsURL).then(res => {
+        if (res.ok) {
+            return res.json();
+        }
+        $('.results2').text(`<h2>Sorry, something went wrong with the news (BIIIG Surprise)</h2>
+        <p>!</p>`);  
+    }).then(responseJson4 => {
+        displayNews(responseJson4);
+    })
 }
 
 
 function fetchAll(city, region, country) {
     fetchAQ(city, region, country);
-    fetchNews(city); 
+    fetchNews(city, region);  
 }
 
 function watchForm() {

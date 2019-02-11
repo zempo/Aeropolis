@@ -27,7 +27,11 @@ See it Live
 
 3. [Leaflet.js:](https://leafletjs.com/examples/quick-start/) For mapping each city
 
-3. [News API:](https://newsapi.org/) For any news articles pertaining to each city searched & it's environmental health.
+4. [Mapbox.com](https://www.mapbox.com/)
+
+5. [News API:](https://newsapi.org/) For any news articles pertaining to each city searched & it's environmental health.
+
+
 
 ## Disclaimer About Air Quality Calculations 
 
