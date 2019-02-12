@@ -18,6 +18,9 @@ supported cities
 http://api.airvisual.com/v2/city?city=Los%20Angeles&state=California&country=USA&key=CpizzCTn5NTozBHEW
 city data 
 
+https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=Colorado
+wikipedia endpoint 
+
 great, <= 25, no overall health risk
 good, 25 < x <= 50, minimal health risk, some risk areas (factories, etc)
 fair, 50 < x <= 100, low risk, some pollutants might affect vulnerable groups
@@ -357,11 +360,7 @@ function initializeMap() {
 
 
 function displayNews(responseJson4) {
-    // display any relevant data 
-    // if no articles found, make an array of text responses 'Sometimes
-    // no news, is good news' 'Don't worry, your city still exists', 'error:
-    // journalists mistook this city for Lincoln, Nebraska
-    $('.results2').empty();
+    $('.results3').empty();
     console.log(responseJson4);
     console.log(responseJson4.totalResults);
     // erase Atlantis data
@@ -372,18 +371,18 @@ function displayNews(responseJson4) {
     // length of 4 
     let pickResponse = Math.floor((Math.random() * noResults.length));
 
-    $('.results2').append(`<h2>Health-Related News From Around Your City</h2>`); 
+    $('.results3').append(`<h2>Health-Related News From Around Your City</h2>`); 
   
     for (let i = 0; i < responseJson4.articles.length & i < 10; i++) {
        /* if (responseJson4.articles.urlToImage === null) { 
-            $('.results2').append(
+            $('.results3').append(
                 `<h3><a href="${responseJson4.articles[i].url}">${responseJson4.articles[i].title}</a></h3>
                 <p></p>`);
             continue;
 
             // hide image, figure out null to hide image 
        } */ 
-        $('.results2').append(
+        $('.results3').append(
             `<h3><a href="${responseJson4.articles[i].url}">${responseJson4.articles[i].title}</a></h3>
             <p><b>From ${responseJson4.articles[i].source.name}</b></p>
             <p><b>By ${responseJson4.articles[i].author}</b></p>
@@ -392,8 +391,8 @@ function displayNews(responseJson4) {
     } 
 
     if (responseJson4.totalResults == 0) {
-        $('.results2').empty();
-        $('.results2').append(`<h3>${noResults[pickResponse]}</h3>`);    
+        $('.results3').empty();
+        $('.results3').append(`<h3>${noResults[pickResponse]}</h3>`);    
     }  
 }
 
@@ -428,7 +427,7 @@ function fetchNews(city, region) {
         if (res.ok) {
             return res.json();
         }
-        $('.results2').text(`<h2>External-Error: Unable to Retrieve News</h2>
+        $('.results3').text(`<h2>External-Error: Unable to Retrieve News</h2>
         <p>!</p>`);   
     }).then(responseJson4 => {
         displayNews(responseJson4);

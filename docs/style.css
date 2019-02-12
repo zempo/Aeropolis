@@ -28,9 +28,9 @@ body {
     display: grid; 
 }
 
-header, .input, .results1, .results2, footer {
+header, .input, .results1, .results2, .results3, footer {
     text-align: center;
-}
+} 
 header img {
     width: 75%; 
     height: 38vw;
@@ -40,6 +40,6 @@ header img {
 
 #mapid { height: 480px; }
 
-.results2 img {
+.results3 img {
     height: 100px; 
 }
