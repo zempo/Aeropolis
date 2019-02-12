@@ -358,6 +358,17 @@ function initializeMap() {
 }).addTo(mymap);
 } 
 
+function displayWiki(responseJson5) {
+    console.log(responseJson5);
+
+    $('.results2').empty();
+    // const stringIn = responseJson5.query.search[0].snippet;
+    // const stringBefore = stringIn.slice(0, )
+
+    $('.results2').append(`<h2>${responseJson5.query.search[0].title}</h2>
+    <h3>${}...</h3>`); 
+} 
+
 
 function displayNews(responseJson4) {
     $('.results3').empty();
@@ -415,7 +426,7 @@ function fetchAQ(city, region, country) {
     });   
 } 
 
-function fetchNews(city, region) {
+function fetchNews(region) {
     // grab news data
     // const cityState = `${encodeURI(region)}%20${encodeURI(city)}%20air%20health`;
     const region2 = `${encodeURI(region)}%20air%20health`;
@@ -427,17 +438,35 @@ function fetchNews(city, region) {
         if (res.ok) {
             return res.json();
         }
-        $('.results3').text(`<h2>External-Error: Unable to Retrieve News</h2>
+        $('.results3').text(`<h2>Error: Unable to retrieve from News Source</h2>
         <p>!</p>`);   
     }).then(responseJson4 => {
         displayNews(responseJson4);
     });
 }
 
+function fetchWiki(city) {
+    // fetch from wikipedia api
+    const city2 = `${encodeURI(city)}`;
+    const proxyURL = `https://cors-anywhere.herokuapp.com/`;
+    const wikiURL = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${city2}`;
+
+    fetch(proxyURL + wikiURL).then(res => {
+        if (res.ok) {
+            return res.json();
+        }
+        $('.results2').text(`<h2>Error: Unable to retrieve from Wiki Source</h2>
+        <p>!</p>`);
+    }).then(responseJson5 => {
+        displayWiki(responseJson5);
+    });
+}
+
 
 function fetchAll(city, region, country) {
     fetchAQ(city, region, country);
-    fetchNews(city, region);  
+    fetchNews(region); 
+    fetchWiki(city);
 }
 
 function watchForm() {
