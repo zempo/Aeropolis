@@ -366,7 +366,7 @@ function displayWiki(responseJson5) {
     // const stringBefore = stringIn.slice(0, )
 
     $('.results2').append(`<h2>${responseJson5.query.search[0].title}</h2>
-    <h3>${}...</h3>`); 
+    <h3>${responseJson5.query.search[0].snippet}...</h3>`); 
 } 
 
 
