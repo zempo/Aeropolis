@@ -162,8 +162,8 @@ function displayAQ(responseJson3) {
       `<h2>The Air Quality Index for ${city}, ${country} is ${aqi}</h2>
            <h3>This city has excellent health. 8.0/8.0</h3>
            <p>There is negligible overall risk to the entire population. This city is among the healthiest, in terms of air quality.</p>
-                   <button class="showInfo" aria-controls="toggle"><a href="#slideItem1">Show Atlantis Wikipedia Article</a></button>
-        <button class="showInfo" aria-controls="toggle"><a href="#slideItem2">Show News About Atlantis</a></button>`
+        <a href="#results2" role="tab">${city} Wikipedia Page</a>
+        <a href="#results3" role="tab">News About ${city}</a>`
     );
     // 1 small white cloud w/ common pollutant
     // dark-green bar below city vector, 100%
@@ -187,8 +187,8 @@ function displayAQ(responseJson3) {
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
             <h3>This city has good health! 7.0/8.0</h3>
             <p>There might be some risky areas, such as factories. Pollution is rarely an issue.</p>
-                    <button class="showInfo" aria-controls="toggle"><a href="#slideItem1">Show Atlantis Wikipedia Article</a></button>
-        <button class="showInfo" aria-controls="toggle"><a href="#slideItem2">Show News About Atlantis</a></button>`
+        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
+        <a href="#results3" role="tab">Show News About Atlantis</a>`
     );
     // 2 small gray clouds w/ common pollutant
     // medium-green bar below city vector, 87.5%
@@ -212,8 +212,8 @@ function displayAQ(responseJson3) {
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
             <h3>This city has fair health. 6.0/8.0</h3>
             <p>There is low risk overall. However, certain pollutants will affect vulnerable groups.</p>
-                    <button class="showInfo" aria-controls="toggle"><a href="#slideItem1">Show Atlantis Wikipedia Article</a></button>
-        <button class="showInfo" aria-controls="toggle"><a href="#slideItem2">Show News About Atlantis</a></button>`
+        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
+        <a href="#results3" role="tab">Show News About Atlantis</a>`
     );
     // 2 clouds, 1 small gray, 1 medium gray
     // light-green below city vector, 75%
@@ -235,10 +235,10 @@ function displayAQ(responseJson3) {
   } else if (aqi > 100 && aqi <= 125) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
-            <h3>This city is vulnerable. 5.0/8.0</h3>
-            <p>Vulnerable groups are more likely to be affected. Warnings might be issued.</p>
-                    <button class="showInfo" aria-controls="toggle"><a href="#slideItem1">Show Atlantis Wikipedia Article</a></button>
-        <button class="showInfo" aria-controls="toggle"><a href="#slideItem2">Show News About Atlantis</a></button>`
+        <h3>This city is vulnerable. 5.0/8.0</h3>
+        <p>Vulnerable groups are more likely to be affected. Warnings might be issued.</p>
+        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
+        <a href="#results3" role="tab">Show News About Atlantis</a>`
     );
     // 3 clouds, 2 small gray, 1 medium gray
     // bright yellow, 62.5%
@@ -260,10 +260,10 @@ function displayAQ(responseJson3) {
   } else if (aqi > 125 && aqi <= 150) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
-            <h3>This city has declining health! 4.0/8.0</h3>
-            <p>Vulnerable groups are more likely to be affected -- with some hospitalizations taking place. Warnings aren't uncommon.</p>
-                    <button class="showInfo" aria-controls="toggle"><a href="#slideItem1">Show Atlantis Wikipedia Article</a></button>
-        <button class="showInfo" aria-controls="toggle"><a href="#slideItem2">Show News About Atlantis</a></button>`
+        <h3>This city has declining health! 4.0/8.0</h3>
+        <p>Vulnerable groups are more likely to be affected -- with some hospitalizations taking place. Warnings aren't uncommon.</p>
+        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
+        <a href="#results3" role="tab">Show News About Atlantis</a>`
     );
     // 4 clouds, 3 small gray, 1 medium gray
     // orange, 50%
@@ -285,10 +285,10 @@ function displayAQ(responseJson3) {
   } else if (aqi > 150 && aqi <= 200) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
-            <h3>This city has poor health! 3.0/8.0</h3>
-            <p>Everyone is likely to experience some effects. Vulnerable groups have limited mobility.</p>
-                    <button class="showInfo" aria-controls="toggle"><a href="#slideItem1">Show Atlantis Wikipedia Article</a></button>
-        <button class="showInfo" aria-controls="toggle"><a href="#slideItem2">Show News About Atlantis</a></button>`
+        <h3>This city has poor health! 3.0/8.0</h3>
+        <p>Everyone is likely to experience some effects. Vulnerable groups have limited mobility.</p>
+        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
+        <a href="#results3" role="tab">Show News About Atlantis</a>`
     );
     // 5 clouds, 3 small gray, 2 medium gray
     // red, 37.5%
@@ -310,10 +310,10 @@ function displayAQ(responseJson3) {
   } else if (aqi > 200 && aqi <= 300) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
-            <h3>This city is unhealthy! 2.0/8.0</h3>
-            <p>Health Alerts are common. Pollution directly impacts all members of the population. Serious effects are seen.</p>
-                    <button class="showInfo" aria-controls="toggle"><a href="#slideItem1">Show Atlantis Wikipedia Article</a></button>
-        <button class="showInfo" aria-controls="toggle"><a href="#slideItem2">Show News About Atlantis</a></button>`
+        <h3>This city is unhealthy! 2.0/8.0</h3>
+        <p>Health Alerts are common. Pollution directly impacts all members of the population. Serious effects are seen.</p>
+        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
+        <a href="#results3" role="tab">Show News About Atlantis</a>`
     );
     // 6 clouds, 3 small gray, 3 medium gray
     // purple, 25%
@@ -335,10 +335,10 @@ function displayAQ(responseJson3) {
   } else if (aqi > 300) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
-            <h3>This city is hazardous! 1.0/8.0</h3>
-            <p>Emergency Conditions are met. Serious health effects are common. This city is among the most unhealthy in the world.</p>
-                    <button class="showInfo" aria-controls="toggle"><a href="#slideItem1">Show Atlantis Wikipedia Article</a></button>
-        <button class="showInfo" aria-controls="toggle"><a href="#slideItem2">Show News About Atlantis</a></button>`
+        <h3>This city is hazardous! 1.0/8.0</h3>
+        <p>Emergency Conditions are met. Serious health effects are common. This city is among the most unhealthy in the world.</p>
+        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
+        <a href="#results3" role="tab">Show News About Atlantis</a>`
     );
     // 6 clouds, 2 small gray, 4 medium gray
     // maroon, 12.5%
@@ -361,9 +361,6 @@ function displayAQ(responseJson3) {
     $(".results1").append(`<h2>Error 404: Air Quality Index data is absent from this city.</h2>`);
     // funny error message
   }
-  // console.log(responseJson3);
-  // console.log([longitude, latitude]);
-  // ^For testing
 }
 
 function initializeMap() {
@@ -386,10 +383,10 @@ function initializeMap() {
 function displayWiki(responseJson4) {
   console.log(responseJson4);
 
-  $(".results2").empty();
+  $("#results2").empty();
   //  <iframe src="https://en.wikipedia.org/wiki/Atlantis" frameborder="0" class="wikiFrame"></iframe>
   if (responseJson4.query.search.length === 0) {
-    $(".results2").append(`<h2>Sorry, no wikipedia article here</h2>`);
+    $("#results2").append(`<h2>Sorry, no wikipedia article here</h2>`);
   } else {
     const { title, snippet } = responseJson4.query.search[0];
 
@@ -424,15 +421,15 @@ function displayWiki(responseJson4) {
     S.replace(/   /g, "  ");
     S.replace(/  /g, " ");
     console.log(S);
-    $(".results2").append(`<h2>${title}</h2>
-      <h3>"${S}..."</h3>
-      <button class="showWiki" aria-controls="toggle">Click to Read Article</button>
-      <iframe src="https://en.wikipedia.org/wiki/${title}" frameborder="0" class="wikiFrame"></iframe>`);
+    $("#results2").append(`<h2>${title}</h2>
+      <h3>"${S}..."</h3> 
+      <button class="showFullWiki" role="toggle">&lt;See Full Article&gt;</button>
+      <iframe src="https://en.wikipedia.org/wiki/${title}" frameborder="0" id="wikiFrame"></iframe>`);
   }
 }
 
 function displayNews(responseJson5) {
-  $(".results3").empty();
+  $("#results3").empty();
   console.log(responseJson5);
   console.log(responseJson5.totalResults);
   // erase Atlantis data
@@ -445,7 +442,7 @@ function displayNews(responseJson5) {
   // length of 4
   let pickResponse = Math.floor(Math.random() * noResults.length);
 
-  $(".results3").append(`<h2>Health-Related News From Around Your City</h2>`);
+  $("#results3").append(`<h2>Health-Related News From Around Your City</h2>`);
 
   for (let i = 0; (i < responseJson5.articles.length) & (i < 10); i++) {
     const { url, urlToImage, description, source, title, author } = responseJson5.articles[i];
@@ -453,7 +450,7 @@ function displayNews(responseJson5) {
     if (!description) {
       continue;
     } else if (!author && !urlToImage) {
-      $(".results3").append(
+      $("#results3").append(
         `<h3><a href="${url}">${title}</a></h3>
                 <p><b>From ${source.name}</b></p>
                 <p>${description}</p>`
@@ -461,7 +458,7 @@ function displayNews(responseJson5) {
       continue;
       // hide image, figure out null to hide image
     } else if (!author) {
-      $(".results3").append(
+      $("#results3").append(
         `<h3><a href="${url}">${title}</a></h3>
             <p><b>From ${source.name}</b></p>
             <img src="${urlToImage}" alt="Image for article ${i}"> 
@@ -469,7 +466,7 @@ function displayNews(responseJson5) {
       );
       continue;
     } else if (!urlToImage) {
-      $(".results3").append(
+      $("#results3").append(
         `<h3><a href="${url}">${title}</a></h3>
             <p><b>From ${source.name}</b></p>
             <p><b>By ${author}</b></p>
@@ -477,7 +474,7 @@ function displayNews(responseJson5) {
       );
       continue;
     } else {
-      $(".results3").append(
+      $("#results3").append(
         `<h3><a href="${url}">${title}</a></h3>
             <p><b>From ${source.name}</b></p>
             <p><b>By ${author}</b></p>
@@ -488,8 +485,8 @@ function displayNews(responseJson5) {
   }
 
   if (responseJson5.totalResults == 0) {
-    $(".results3").empty();
-    $(".results3").append(`<h3>${noResults[pickResponse]}</h3>`);
+    $("#results3").empty();
+    $("#results3").append(`<h3>${noResults[pickResponse]}</h3>`);
   }
 }
 
@@ -529,7 +526,7 @@ function fetchNews(region) {
       if (res.ok) {
         return res.json();
       }
-      $(".results3").text(`<h2>Error: Unable to retrieve from News Source</h2>
+      $("#results3").text(`<h2>Error: Unable to retrieve from News Source</h2>
         <p>!</p>`);
     })
     .then(responseJson5 => {
@@ -548,7 +545,7 @@ function fetchWiki(city, region) {
       if (res.ok) {
         return res.json();
       }
-      $(".results2").text(`<h2>Error: Unable to retrieve from Wiki Source</h2>
+      $("#results2").text(`<h2>Error: Unable to retrieve from Wiki Source</h2>
         <p>!</p>`);
     })
     .then(responseJson4 => {
@@ -574,8 +571,27 @@ function watchForm() {
   });
 }
 
+function showWiki() {
+  $("#results2").on("click", ".showFullWiki", e => {
+    $(".showFullWiki")
+      .siblings("iframe")
+      .css("height", "500px");
+
+    $(".showFullWiki").attr("class", "hideFullWiki");
+  });
+
+  $("#results2").on("click", ".hideFullWiki", e => {
+    $(".hideFullWiki")
+      .siblings("iframe")
+      .css("height", "0px");
+
+    $(".hideFullWiki").attr("class", "showFullWiki");
+  });
+}
+
 /*///////////////////// FUNCTION CALLS //////////////////////////// */
 
+$(showWiki);
 $(initializeMap);
 $(watchSelect);
 $(watchForm);

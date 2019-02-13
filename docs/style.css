@@ -27,6 +27,8 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Usi
 
 body {
   display: grid;
+  margin: 0;
+  padding: 0;
 }
 
 header,
@@ -63,7 +65,8 @@ header img {
 }
 
 /* Expanding wiki iframe */
-#results2 .wikiFrame {
-  height: 500px;
+#wikiFrame {
+  height: 0px;
   width: 100%;
+  display: block;
 }
