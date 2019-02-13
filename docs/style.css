@@ -20,6 +20,7 @@ file:///home/solomon/Odin/test5.html
              and 
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds
 */
+
 /* General Styles */
 * {
   box-sizing: border-box;
@@ -69,4 +70,10 @@ header img {
   height: 0px;
   width: 100%;
   display: block;
+}
+
+/* Expanding news results */
+#results3 {
+  overflow: hidden;
+  height: 100px;
 }

@@ -442,7 +442,8 @@ function displayNews(responseJson5) {
   // length of 4
   let pickResponse = Math.floor(Math.random() * noResults.length);
 
-  $("#results3").append(`<h2>Health-Related News From Around Your City</h2>`);
+  $("#results3").append(`<h2>Health-Related News From Around Your City</h2>
+  <button class="showFullNews" role="toggle">&lt;View Articles&gt;</button>`);
 
   for (let i = 0; (i < responseJson5.articles.length) & (i < 10); i++) {
     const { url, urlToImage, description, source, title, author } = responseJson5.articles[i];
@@ -571,11 +572,15 @@ function watchForm() {
   });
 }
 
+/*//////////////////// Toggle Results Content  ///////////////////// */
+
 function showWiki() {
   $("#results2").on("click", ".showFullWiki", e => {
     $(".showFullWiki")
       .siblings("iframe")
       .css("height", "500px");
+
+    $(".showFullWiki").text("> Hide Article <");
 
     $(".showFullWiki").attr("class", "hideFullWiki");
   });
@@ -585,13 +590,36 @@ function showWiki() {
       .siblings("iframe")
       .css("height", "0px");
 
+    $(".hideFullWiki").text("< Show Article >");
+
     $(".hideFullWiki").attr("class", "showFullWiki");
+  });
+}
+
+function showNews() {
+  $("#results3").on("click", ".showFullNews", e => {
+    $(".showFullNews")
+      .parent()
+      .css("height", "auto");
+    $(".showFullNews").text("> Hide News <");
+
+    $(".showFullNews").attr("class", "hideFullNews");
+  });
+
+  $("#results3").on("click", ".hideFullNews", e => {
+    $(".hideFullNews")
+      .parent()
+      .css("height", "100px");
+    $(".hideFullNews").text("< Show News >");
+
+    $(".hideFullNews").attr("class", "showFullNews");
   });
 }
 
 /*///////////////////// FUNCTION CALLS //////////////////////////// */
 
 $(showWiki);
+$(showNews);
 $(initializeMap);
 $(watchSelect);
 $(watchForm);
