@@ -157,18 +157,17 @@
         <p>
           Apart from the catastrophic flooding, residents generally don't experience many health risks.
         </p>
+
+        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
+        <a href="#results3" role="tab">Show News About Atlantis</a>
       </div>
 
-      <button class="showInfo" aria-controls="toggle">More Info</button>
-
-      <div id="mapid" role="map displaying each queried city" lang="en"></div>
-
-      <section class="slideContent">
-        <div class="results2" role="wikipedia results" lang="en">
+      <section class="tabs">
+        <div id="results2" role="wikipedia results" lang="en">
           <iframe src="https://en.wikipedia.org/wiki/Atlantis" frameborder="0" class="wikiFrame"></iframe>
         </div>
 
-        <div class="results3" role="news articles list" lang="en">
+        <div id="results3" role="news articles list" lang="en">
           <h2>Health-Related News From Around This City</h2>
 
           <h3>
@@ -206,6 +205,8 @@
           </p>
         </div>
       </section>
+
+      <div id="mapid" role="map displaying each queried city" lang="en"></div>
     </main>
     <footer>
       <h1>Developed by Solomon Zelenko</h1>

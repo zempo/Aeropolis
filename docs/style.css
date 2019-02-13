@@ -20,6 +20,7 @@ file:///home/solomon/Odin/test5.html
              and 
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds
 */
+/* General Styles */
 * {
   box-sizing: border-box;
 }
@@ -31,8 +32,8 @@ body {
 header,
 .input,
 .results1,
-.results2,
-.results3,
+#results2,
+#results3,
 footer {
   text-align: center;
 }
@@ -47,11 +48,22 @@ header img {
   height: 480px;
 }
 
-.results2 .wikiFrame {
-  height: 500px;
-  width: 100%;
+#results3 img {
+  height: 100px;
 }
 
-.results3 img {
-  height: 100px;
+/* Slide out menu */
+.tabs div {
+  display: none;
+}
+
+.tabs div:target {
+  border: 2px solid black;
+  display: block;
+}
+
+/* Expanding wiki iframe */
+#results2 .wikiFrame {
+  height: 500px;
+  width: 100%;
 }
