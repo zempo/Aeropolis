@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Major+Mono+Display");
 /*
 smooth selector transitions, :active, slow open?
 
@@ -40,6 +41,7 @@ header,
 footer {
   text-align: center;
 }
+
 header img {
   width: 75%;
   height: 38vw;
@@ -53,6 +55,20 @@ header img {
 
 #results3 img {
   height: 100px;
+}
+
+/* Header */
+header {
+  font-family: "Major Mono Display", monospace;
+  line-height: 1.15;
+}
+.top {
+  font-size: 5.5vw;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.bottom {
+  font-size: 5vw;
 }
 
 /* Slide out menu */
@@ -75,5 +91,5 @@ header img {
 /* Expanding news results */
 #results3 {
   overflow: hidden;
-  height: 100px;
+  height: 200px;
 }
