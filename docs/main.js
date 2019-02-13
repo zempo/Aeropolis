@@ -65,12 +65,7 @@ Access to fetch at
     }, 2800);  
 */
 
-/* ///////////////// Input /////////////////// */
-// encode selector value uri data
-// disable submit button before selections are made
-// select country --> loop in regions of country, select region
-// select region --> loop in cities
-// select cities --> enable submit button!
+/* ////////////////////////////////// Input //////////////////////////////// */
 
 function updateRegion(responseJson) {
   const country = $("#country option:selected").val();
@@ -350,7 +345,6 @@ function displayAQ(responseJson3) {
     $(".results1").append(`<h2>Error 404: Air Quality Index data is absent from this city.</h2>`);
     // funny error message
   }
-
   // console.log(responseJson3);
   // console.log([longitude, latitude]);
   // ^For testing
@@ -373,56 +367,57 @@ function initializeMap() {
   ).addTo(mymap);
 }
 
-function displayWiki(responseJson5) {
-  console.log(responseJson5);
+function displayWiki(responseJson4) {
+  console.log(responseJson4);
 
   $(".results2").empty();
-
-  if (responseJson5.query.search.length === 0) {
+  //  <iframe src="https://en.wikipedia.org/wiki/Atlantis" frameborder="0" class="wikiFrame"></iframe>
+  if (responseJson4.query.search.length === 0) {
     $(".results2").append(`<h2>Sorry, no wikipedia article here</h2>`);
+  } else {
+    const { title, snippet } = responseJson4.query.search[0];
+
+    let S = snippet;
+
+    while (S.includes("(")) {
+      let end = null;
+      let start = S.indexOf("(");
+
+      end = S.indexOf(")");
+      let startS = S.substr(0, start);
+      // console.log(startS);
+      let endS = S.substr(end + 2);
+      // console.log(endS);
+      S = startS + endS;
+    }
+
+    while (S.includes(":")) {
+      let end = null;
+      let start = S.indexOf(":");
+
+      end = S.lastIndexOf(":");
+      let startS = S.substr(0, start);
+      // console.log(startS);
+      let endS = S.substr(end + 2);
+      // console.log(endS);
+      S = startS + endS;
+    }
+
+    S.replace(/     /g, "   ");
+    S.replace(/    /g, "   ");
+    S.replace(/   /g, "  ");
+    S.replace(/  /g, " ");
+    console.log(S);
+    $(".results2").append(`<h2>${title}</h2>
+      <h3>"${S}..."</h3>
+      <iframe src="https://en.wikipedia.org/wiki/${title}" frameborder="0" class="wikiFrame"></iframe>`);
   }
-
-  const { title, snippet } = responseJson5.query.search[0];
-
-  let S = snippet;
-
-  while (S.includes("(")) {
-    let end = null;
-    let start = S.indexOf("(");
-
-    end = S.indexOf(")");
-    let startS = S.substr(0, start);
-    // console.log(startS);
-    let endS = S.substr(end + 2);
-    // console.log(endS);
-    S = startS + endS;
-  }
-
-  while (S.includes(":")) {
-    let end = null;
-    let start = S.indexOf(":");
-
-    end = S.lastIndexOf(":");
-    let startS = S.substr(0, start);
-    // console.log(startS);
-    let endS = S.substr(end + 2);
-    // console.log(endS);
-    S = startS + endS;
-  }
-
-  S.replace(/     /g, "   ");
-  S.replace(/    /g, "   ");
-  S.replace(/   /g, "  ");
-  S.replace(/  /g, " ");
-  console.log(S);
-  $(".results2").append(`<h2>${title}</h2>
-    <h3>${S}...</h3>`);
 }
 
-function displayNews(responseJson4) {
+function displayNews(responseJson5) {
   $(".results3").empty();
-  console.log(responseJson4);
-  console.log(responseJson4.totalResults);
+  console.log(responseJson5);
+  console.log(responseJson5.totalResults);
   // erase Atlantis data
   let noResults = [
     `Sometimes, no news is good news!`,
@@ -435,8 +430,8 @@ function displayNews(responseJson4) {
 
   $(".results3").append(`<h2>Health-Related News From Around Your City</h2>`);
 
-  for (let i = 0; (i < responseJson4.articles.length) & (i < 10); i++) {
-    const { url, urlToImage, description, source, title, author } = responseJson4.articles[i];
+  for (let i = 0; (i < responseJson5.articles.length) & (i < 10); i++) {
+    const { url, urlToImage, description, source, title, author } = responseJson5.articles[i];
 
     if (!description) {
       continue;
@@ -475,11 +470,12 @@ function displayNews(responseJson4) {
     }
   }
 
-  if (responseJson4.totalResults == 0) {
+  if (responseJson5.totalResults == 0) {
     $(".results3").empty();
     $(".results3").append(`<h3>${noResults[pickResponse]}</h3>`);
   }
 }
+
 /*/////////////////////////      FETCH: Search Submitted       ////////////////////////////// */
 
 function fetchAQ(city, region, country) {
@@ -519,16 +515,16 @@ function fetchNews(region) {
       $(".results3").text(`<h2>Error: Unable to retrieve from News Source</h2>
         <p>!</p>`);
     })
-    .then(responseJson4 => {
-      displayNews(responseJson4);
+    .then(responseJson5 => {
+      displayNews(responseJson5);
     });
 }
 
-function fetchWiki(city) {
+function fetchWiki(city, region) {
   // fetch from wikipedia api
-  const city2 = `${encodeURI(city)}`;
+  const cityState = `${encodeURI(city)}${encodeURI(region)}`;
   const proxyURL = `https://cors-anywhere.herokuapp.com/`;
-  const wikiURL = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${city2}`;
+  const wikiURL = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${cityState}`;
 
   fetch(proxyURL + wikiURL)
     .then(res => {
@@ -538,15 +534,15 @@ function fetchWiki(city) {
       $(".results2").text(`<h2>Error: Unable to retrieve from Wiki Source</h2>
         <p>!</p>`);
     })
-    .then(responseJson5 => {
-      displayWiki(responseJson5);
+    .then(responseJson4 => {
+      displayWiki(responseJson4);
     });
 }
 
 function fetchAll(city, region, country) {
   fetchAQ(city, region, country);
   fetchNews(region);
-  fetchWiki(city);
+  fetchWiki(city, region);
 }
 
 function watchForm() {

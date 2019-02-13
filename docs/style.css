@@ -21,25 +21,37 @@ file:///home/solomon/Odin/test5.html
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds
 */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    display: grid; 
+  display: grid;
 }
 
-header, .input, .results1, .results2, .results3, footer {
-    text-align: center;
-} 
+header,
+.input,
+.results1,
+.results2,
+.results3,
+footer {
+  text-align: center;
+}
 header img {
-    width: 75%; 
-    height: 38vw;
-    object-fit: cover;
-    object-position: center bottom;
+  width: 75%;
+  height: 38vw;
+  object-fit: cover;
+  object-position: center bottom;
 }
 
-#mapid { height: 480px; }
+#mapid {
+  height: 480px;
+}
+
+.results2 .wikiFrame {
+  height: 500px;
+  width: 100%;
+}
 
 .results3 img {
-    height: 100px; 
+  height: 100px;
 }
