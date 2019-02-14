@@ -41,6 +41,23 @@ body {
   display: grid;
   margin: 0;
   padding: 0;
+  background-image: linear-gradient(
+    to top,
+    #010414 6%,
+    #3f51b1 7%,
+    #5a55ae 13%,
+    #7b5fac 25%,
+    #8f6aae 38%,
+    #a86aa4 50%,
+    #cc6b8e 62%,
+    #f18271 75%,
+    #f3a469 87%,
+    #f7c978 100%
+  );
+}
+main {
+  margin: 0;
+  padding: 0;
 }
 
 header,
@@ -67,6 +84,12 @@ header img {
   height: 100px;
 }
 /* Buttons + labels */
+button:disabled {
+  color: white;
+  background: rgba(32, 30, 30, 0.726);
+  border: none;
+  opacity: 0.6;
+}
 button {
   height: 50px;
 }
@@ -79,7 +102,7 @@ button {
   margin-bottom: 150px;
 }
 
-/* Fonts mobile */
+/* Font starter */
 div h2,
 div h3,
 form {
@@ -103,7 +126,16 @@ select option,
 button {
   font-family: "ITCAvantGardePro-Bk";
   font-weight: lighter;
+  font-size: 25px;
 }
+select {
+  padding: 5px;
+  background: black;
+  color: white;
+  text-align-last: center;
+  border: 1px solid white;
+}
+
 p {
   font-family: "Nanum Gothic", sans-serif;
   font-weight: normal;
@@ -111,6 +143,7 @@ p {
 footer {
   font-family: "ITCAvantGardePro-BK";
   font-weight: bold;
+  color: white;
 }
 
 /* Header */
@@ -127,18 +160,91 @@ h1 .bottom {
   font-family: "Major Mono Display", monospace;
   font-size: 5vw;
 }
+/* Form positioning */
 
-/* Slide out menu */
+form {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-gap: 5px;
+  grid-template-areas:
+    ". l1 ."
+    ". country ."
+    ". l2 ."
+    ". regions ."
+    ". l3 ."
+    ". city ."
+    ". search .";
+}
+.label1 {
+  grid-area: l1;
+}
+.label2 {
+  grid-area: l2;
+}
+.label3 {
+  grid-area: l3;
+}
+#country {
+  grid-area: country;
+}
+#region {
+  grid-area: regions;
+}
+#city {
+  grid-area: city;
+}
+.searchBtn {
+  grid-area: search;
+  margin-top: 15px;
+}
+
+/* Tabs menu */
+.results1 a {
+  padding: 20px 20px 10px;
+  font-size: 20px;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bolder;
+  text-decoration: none;
+  background: #010414;
+  color: white;
+  margin-top: 30px;
+  border-top: 2px solid rgba(245, 239, 239, 0.425);
+  border-left: 2px solid rgba(245, 239, 239, 0.425);
+  border-right: 2px solid rgba(245, 239, 239, 0.425);
+  border-bottom: 2px solid #010414;
+}
+
+.results1 a[href="#results3"] {
+  border-bottom: 2px solid rgba(245, 239, 239, 0.425);
+}
+
+.results1 {
+  margin-bottom: 10px;
+}
+
 .tabs div {
   display: none;
 }
+.tabs button {
+  border: 2px solid white;
+  color: white;
+  background: none;
+  padding: 5px;
+}
 
 .tabs div:target {
-  border: 2px solid black;
+  border-top: 2px solid rgba(245, 239, 239, 0.425);
   display: block;
 }
 
 /* Expanding wiki iframe */
+#results2 {
+  height: 303.5px;
+  overflow: visible;
+  color: white;
+  background: #010414;
+}
+
 #wikiFrame {
   height: 0px;
   width: 100%;
@@ -149,6 +255,8 @@ h1 .bottom {
 #results3 {
   overflow: hidden;
   height: 303.5px;
+  color: white;
+  background: #010414;
 }
 
 @media screen and (min-width: 510px) {
@@ -156,5 +264,39 @@ h1 .bottom {
   .input h2 {
     font-weight: bolder;
     font-size: 55px;
+  }
+  label,
+  select,
+  select option,
+  button {
+    font-family: "ITCAvantGardePro-Bk";
+    font-weight: lighter;
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  form {
+    display: grid;
+    grid-template-columns: 1.5fr 3fr 3fr 1.5fr;
+    grid-gap: 5px;
+    grid-template-areas:
+      ". l1 l1 ."
+      ". country country ."
+      ". l2 l3 ."
+      ". regions city ."
+      ". search search .";
+  }
+}
+
+@media screen and (min-width: 1095px) {
+  form {
+    display: grid;
+    grid-template-columns: 12.5% 1fr 1fr 1fr 12.5%;
+    grid-gap: 10px;
+    grid-template-areas:
+      ". l1 l2 l3 ."
+      ". country regions city ."
+      ". . search . .";
   }
 }

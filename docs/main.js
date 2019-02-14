@@ -579,6 +579,10 @@ function watchForm() {
 function showWiki() {
   $("#results2").on("click", ".showFullWiki", e => {
     $(".showFullWiki")
+      .parent()
+      .css("height", "auto");
+
+    $(".showFullWiki")
       .siblings("iframe")
       .css("height", "500px");
 
@@ -588,6 +592,10 @@ function showWiki() {
   });
 
   $("#results2").on("click", ".hideFullWiki", e => {
+    $(".showFullWiki")
+      .parent()
+      .css("height", "303.5px");
+
     $(".hideFullWiki")
       .siblings("iframe")
       .css("height", "0px");
