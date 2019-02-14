@@ -441,8 +441,10 @@ function displayNews(responseJson5) {
   ];
   // length of 4
   let pickResponse = Math.floor(Math.random() * noResults.length);
+  const city = $("#city").val();
 
-  $("#results3").append(`<h2>Health-Related News From Around Your City</h2>
+  $("#results3").append(`<h2>Health-Related News</h2>
+  <h3>Near ${city}</h3>
   <button class="showFullNews" role="toggle">&lt;View Articles&gt;</button>`);
 
   for (let i = 0; (i < responseJson5.articles.length) & (i < 10); i++) {
@@ -609,7 +611,7 @@ function showNews() {
   $("#results3").on("click", ".hideFullNews", e => {
     $(".hideFullNews")
       .parent()
-      .css("height", "100px");
+      .css("height", "303.5px");
     $(".hideFullNews").text("< Show News >");
 
     $(".hideFullNews").attr("class", "showFullNews");

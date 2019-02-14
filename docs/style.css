@@ -1,5 +1,15 @@
-@import url("https://fonts.googleapis.com/css?family=Major+Mono+Display");
+@import url("https://fonts.googleapis.com/css?family=Major+Mono+Display|Nanum+Gothic");
+@font-face {
+  font-family: "ITCAvantGardePro-Bk";
+  font-style: normal;
+  font-weight: normal;
+  src: local("fonts/ITCAvantGardePro-Bk"), url("fonts/ITCAvantGardePro-Bk.woff") format("woff");
+}
+
 /*
+font-family: 'Major Mono Display', monospace;
+font-family: 'Nanum Gothic', sans-serif;
+
 smooth selector transitions, :active, slow open?
 
 if button disabled or enabled 
@@ -56,18 +66,65 @@ header img {
 #results3 img {
   height: 100px;
 }
+/* Buttons + labels */
+button {
+  height: 50px;
+}
+
+#results2 button {
+  margin-bottom: 30px;
+}
+
+#results3 button {
+  margin-bottom: 150px;
+}
+
+/* Fonts mobile */
+div h2,
+div h3,
+form {
+  font-family: "ITCAvantGardePro-Bk";
+}
+.results1 h2,
+.input h2 {
+  font-weight: bolder;
+  font-size: 10vw;
+}
+.tabs h2 {
+  font-size: 30px;
+}
+h3 {
+  font-weight: bold;
+}
+
+label,
+select,
+select option,
+button {
+  font-family: "ITCAvantGardePro-Bk";
+  font-weight: lighter;
+}
+p {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: normal;
+}
+footer {
+  font-family: "ITCAvantGardePro-BK";
+  font-weight: bold;
+}
 
 /* Header */
-header {
+header h1 {
   font-family: "Major Mono Display", monospace;
   line-height: 1.15;
 }
-.top {
+h1 .top {
   font-size: 5.5vw;
+  font-family: "Major Mono Display", monospace;
   font-weight: bold;
-  margin-bottom: 20px;
 }
-.bottom {
+h1 .bottom {
+  font-family: "Major Mono Display", monospace;
   font-size: 5vw;
 }
 
@@ -91,5 +148,13 @@ header {
 /* Expanding news results */
 #results3 {
   overflow: hidden;
-  height: 200px;
+  height: 303.5px;
+}
+
+@media screen and (min-width: 510px) {
+  .results1 h2,
+  .input h2 {
+    font-weight: bolder;
+    font-size: 55px;
+  }
 }
