@@ -161,9 +161,9 @@ function displayAQ(responseJson3) {
     $(".results1").append(
       `<h2>The Air Quality Index for ${city}, ${country} is ${aqi}</h2>
            <h3>This city has excellent health. 8.0/8.0</h3>
-           <p>There is negligible overall risk to the entire population. This city is among the healthiest, in terms of air quality.</p>
-        <a href="#results2" role="tab">${city} Wikipedia Page</a>
-        <a href="#results3" role="tab">News About ${city}</a>`
+           <p>There is negligible overall risk to the entire population. This city is among the healthiest, in terms of air quality.</p></br></br>
+        <a href="#results2" role="tab">City Wiki</a>
+        <a href="#results3" role="tab">City News</a>`
     );
     // 1 small white cloud w/ common pollutant
     // dark-green bar below city vector, 100%
@@ -186,9 +186,9 @@ function displayAQ(responseJson3) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
             <h3>This city has good health! 7.0/8.0</h3>
-            <p>There might be some risky areas, such as factories. Pollution is rarely an issue.</p>
-        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
-        <a href="#results3" role="tab">Show News About Atlantis</a>`
+            <p>There might be some risky areas, such as factories. Pollution is rarely an issue.</p></br></br>
+        <a href="#results2" role="tab">City Wiki</a>
+        <a href="#results3" role="tab">City News</a>`
     );
     // 2 small gray clouds w/ common pollutant
     // medium-green bar below city vector, 87.5%
@@ -211,9 +211,9 @@ function displayAQ(responseJson3) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
             <h3>This city has fair health. 6.0/8.0</h3>
-            <p>There is low risk overall. However, certain pollutants will affect vulnerable groups.</p>
-        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
-        <a href="#results3" role="tab">Show News About Atlantis</a>`
+            <p>There is low risk overall. However, certain pollutants will affect vulnerable groups.</p></br></br>
+        <a href="#results2" role="tab">City Wiki</a>
+        <a href="#results3" role="tab">City News</a>`
     );
     // 2 clouds, 1 small gray, 1 medium gray
     // light-green below city vector, 75%
@@ -236,9 +236,9 @@ function displayAQ(responseJson3) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
         <h3>This city is vulnerable. 5.0/8.0</h3>
-        <p>Vulnerable groups are more likely to be affected. Warnings might be issued.</p>
-        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
-        <a href="#results3" role="tab">Show News About Atlantis</a>`
+        <p>Vulnerable groups are more likely to be affected. Warnings might be issued.</p></br></br>
+        <a href="#results2" role="tab">City Wiki</a>
+        <a href="#results3" role="tab">City News</a>`
     );
     // 3 clouds, 2 small gray, 1 medium gray
     // bright yellow, 62.5%
@@ -261,9 +261,9 @@ function displayAQ(responseJson3) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
         <h3>This city has declining health! 4.0/8.0</h3>
-        <p>Vulnerable groups are more likely to be affected -- with some hospitalizations taking place. Warnings aren't uncommon.</p>
-        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
-        <a href="#results3" role="tab">Show News About Atlantis</a>`
+        <p>Vulnerable groups are more likely to be affected -- with some hospitalizations taking place. Warnings aren't uncommon.</p></br></br>
+        <a href="#results2" role="tab">City Wiki</a>
+        <a href="#results3" role="tab">City News</a>`
     );
     // 4 clouds, 3 small gray, 1 medium gray
     // orange, 50%
@@ -286,9 +286,9 @@ function displayAQ(responseJson3) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
         <h3>This city has poor health! 3.0/8.0</h3>
-        <p>Everyone is likely to experience some effects. Vulnerable groups have limited mobility.</p>
-        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
-        <a href="#results3" role="tab">Show News About Atlantis</a>`
+        <p>Everyone is likely to experience some effects. Vulnerable groups have limited mobility.</p></br></br>
+        <a href="#results2" role="tab">City Wiki</a>
+        <a href="#results3" role="tab">City News</a>`
     );
     // 5 clouds, 3 small gray, 2 medium gray
     // red, 37.5%
@@ -311,9 +311,9 @@ function displayAQ(responseJson3) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
         <h3>This city is unhealthy! 2.0/8.0</h3>
-        <p>Health Alerts are common. Pollution directly impacts all members of the population. Serious effects are seen.</p>
-        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
-        <a href="#results3" role="tab">Show News About Atlantis</a>`
+        <p>Health Alerts are common. Pollution directly impacts all members of the population. Serious effects are seen.</p></br></br>
+        <a href="#results2" role="tab">City Wiki</a>
+        <a href="#results3" role="tab">City News</a>`
     );
     // 6 clouds, 3 small gray, 3 medium gray
     // purple, 25%
@@ -336,9 +336,9 @@ function displayAQ(responseJson3) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
         <h3>This city is hazardous! 1.0/8.0</h3>
-        <p>Emergency Conditions are met. Serious health effects are common. This city is among the most unhealthy in the world.</p>
-        <a href="#results2" role="tab">Show Atlantis Wikipedia Article</a>
-        <a href="#results3" role="tab">Show News About Atlantis</a>`
+        <p>Emergency Conditions are met. Serious health effects are common. This city is among the most unhealthy in the world.</p></br></br>
+        <a href="#results2" role="tab">City Wiki</a>
+        <a href="#results3" role="tab">City News</a>`
     );
     // 6 clouds, 2 small gray, 4 medium gray
     // maroon, 12.5%
@@ -422,7 +422,7 @@ function displayWiki(responseJson4) {
     S.replace(/  /g, " ");
     console.log(S);
     $("#results2").append(`<h2>${title}</h2>
-      <h3>"${S}..."</h3> 
+      <blockquote>"${S}..."</blockquote> 
       <button class="showFullWiki" role="toggle">&lt;See Full Article&gt;</button>
       <iframe src="https://en.wikipedia.org/wiki/${title}" frameborder="0" id="wikiFrame"></iframe>`);
   }
@@ -574,9 +574,22 @@ function watchForm() {
   });
 }
 
-/*//////////////////// Toggle Results Content  ///////////////////// */
+/*//////////////////// Toggle Results Tabs  ///////////////////// */
 
 function showWiki() {
+  $(".results1").on("click", "a[href|='#results2']", e => {
+    $("a[href|='#results2']").css("border-bottom", "3px solid #010414");
+
+    $("a[href|='#results2']").css("opacity", "1");
+
+    $("a[href|='#results2']")
+      .siblings("a[href|='#results3']")
+      .css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
+    $("a[href|='#results2']")
+      .siblings("a[href|='#results3']")
+      .css("opacity", "0.8");
+  });
+
   $("#results2").on("click", ".showFullWiki", e => {
     $(".showFullWiki")
       .parent()
@@ -607,6 +620,18 @@ function showWiki() {
 }
 
 function showNews() {
+  $(".results1").on("click", "a[href|='#results3']", e => {
+    $("a[href|='#results3']").css("border-bottom", "3px solid #010414");
+    $("a[href|='#results3']").css("opacity", "1");
+
+    $("a[href|='#results3']")
+      .siblings("a[href|='#results2']")
+      .css("opacity", "0.8");
+    $("a[href|='#results3']")
+      .siblings("a[href|='#results2']")
+      .css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
+  });
+
   $("#results3").on("click", ".showFullNews", e => {
     $(".showFullNews")
       .parent()
