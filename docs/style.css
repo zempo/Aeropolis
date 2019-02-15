@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Major+Mono+Display|Nanum+Gothic");
+
 @font-face {
   font-family: "ITCAvantGardePro-Bk";
   font-style: normal;
@@ -41,8 +42,7 @@ body {
   display: grid;
   margin: 0;
   padding: 0;
-  background-image: linear-gradient(
-    to top,
+  background-image: linear-gradient(to top,
     #010414 6%,
     #3f51b1 7%,
     #5a55ae 13%,
@@ -52,9 +52,9 @@ body {
     #cc6b8e 62%,
     #f18271 75%,
     #f3a469 87%,
-    #f7c978 100%
-  );
+    #f7c978 100%);
 }
+
 main {
   margin: 0;
   padding: 0;
@@ -83,6 +83,7 @@ header img {
 #results3 img {
   height: 100px;
 }
+
 /* Buttons + labels */
 button:disabled {
   color: white;
@@ -90,6 +91,7 @@ button:disabled {
   border: none;
   opacity: 0.6;
 }
+
 button {
   height: 55px;
 }
@@ -108,14 +110,17 @@ div h3,
 form {
   font-family: "ITCAvantGardePro-Bk";
 }
+
 .results1 h2,
 .input h2 {
   font-weight: bolder;
   font-size: 10vw;
 }
+
 .tabs h2 {
   font-size: 30px;
 }
+
 h3 {
   font-size: 30px;
   font-weight: bold;
@@ -129,6 +134,7 @@ button {
   font-weight: lighter;
   font-size: 22px;
 }
+
 select {
   padding: 15px;
   background: black;
@@ -142,6 +148,7 @@ p {
   font-weight: normal;
   font-size: 20px;
 }
+
 footer {
   font-family: "ITCAvantGardePro-BK";
   font-weight: bold;
@@ -153,15 +160,18 @@ header h1 {
   font-family: "Major Mono Display", monospace;
   line-height: 1.15;
 }
+
 h1 .top {
   font-size: 5.5vw;
   font-family: "Major Mono Display", monospace;
   font-weight: bold;
 }
+
 h1 .bottom {
   font-family: "Major Mono Display", monospace;
   font-size: 5vw;
 }
+
 /* Form positioning */
 
 form {
@@ -177,24 +187,31 @@ form {
     ". city ."
     ". search .";
 }
+
 .label1 {
   grid-area: l1;
 }
+
 .label2 {
   grid-area: l2;
 }
+
 .label3 {
   grid-area: l3;
 }
+
 #country {
   grid-area: country;
 }
+
 #region {
   grid-area: regions;
 }
+
 #city {
   grid-area: city;
 }
+
 .searchBtn {
   grid-area: search;
   margin-top: 15px;
@@ -233,6 +250,7 @@ form {
 .tabs div {
   display: none;
 }
+
 .tabs button {
   border: 2px solid white;
   color: white;
@@ -254,6 +272,7 @@ form {
 #results2 h2 {
   margin-bottom: 5px;
 }
+
 blockquote {
   font-size: 17px;
   width: 95%;
@@ -310,12 +329,18 @@ blockquote span {
   background: #010414;
 }
 
+#results3 p {
+  width: 50%;
+}
+
 @media screen and (min-width: 510px) {
+
   .results1 h2,
   .input h2 {
     font-weight: bolder;
     font-size: 55px;
   }
+
   label,
   select,
   select option,
@@ -324,13 +349,16 @@ blockquote span {
     font-weight: lighter;
     font-size: 30px;
   }
+
   .results1 a {
     font-size: 30px;
   }
+
   /* Wiki BlockQuote */
   #results2 h2 {
     margin-bottom: 5px;
   }
+
   blockquote {
     font-size: 20px;
     width: 90%;
@@ -392,9 +420,11 @@ blockquote span {
       ". regions city ."
       ". search search .";
   }
+
   .results1 a {
     font-size: 40px;
   }
+
   /* Wiki BlockQuote */
   blockquote {
     font-size: 22px;

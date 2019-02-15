@@ -31,9 +31,7 @@ See it Live
 
 5. [News API:](https://newsapi.org/) For any news articles pertaining to each city searched & its environmental health.
 
-| Source | Usage  | Description |
-| ------ | ------ | ----------- |
-| Example| Free   | For this    | 
+6. [Media Wiki Api:](https://www.mediawiki.org/wiki/API:Main_page)
 
 ## Sources for onload example
 
