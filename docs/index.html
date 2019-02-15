@@ -24,12 +24,11 @@
   <meta name="theme-color" content="#ffffff" />
   <title>Aeropolis</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
     crossorigin="" />
+  <link rel="stylesheet" href="clouds.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
     crossorigin=""></script>
 </head>
 
@@ -39,6 +38,14 @@
       <span class="top">Aeropolis</span> <br />
       <span class="bottom"> Visualize your city </span>
     </h1>
+    <div id="clouds1" role="banner animation">
+      <div class="cloud x1"></div>
+      <div class="cloud x2"></div>
+      <div class="cloud x3"></div>
+      <div class="cloud x4"></div>
+      <div class="cloud x5"></div>
+      <div class="cloud x6"></div>
+    </div>
 
     <img src="media/City.svg" alt="banner visual: city graphic" height="400" />
   </header>
@@ -215,7 +222,8 @@
         <p><b>By Another Name Lost to the Cursed History of this City</b></p>
         <img src="media/exArticle4.jpg" alt="example article 3 image" />
         <p>
-          Residents brace themselves for delays as the end of times draws ever closer. Sources say the wrath of the gods
+          Residents brace themselves for delays as the end of times draws ever closer. Sources say the wrath of the
+          gods
           was caused by our hubris,
           and I have to agree...<b>*glub glub glub*</b>
         </p>

@@ -89,13 +89,13 @@ function updateCity(responseJson2) {
     $("#city").append(`<option value="${opt}">${opt}</option>`);
   }
 
-  $("#city").change(function() {
+  $("#city").change(function () {
     $(".searchBtn").prop("disabled", false);
   });
 }
 
 function watchSelect() {
-  $(document).ready(function() {
+  $(document).ready(function () {
     $(".searchBtn").prop("disabled", true);
   });
 
@@ -369,10 +369,8 @@ function initializeMap() {
   mymap.setView([0, 0], 1);
 
   L.tileLayer(
-    "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q",
-    {
-      attribution:
-        'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q", {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
       id: "mapbox.satellite",
       accessToken: "pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q"
@@ -381,14 +379,17 @@ function initializeMap() {
 }
 
 function displayWiki(responseJson4) {
-  console.log(responseJson4);
+  // console.log(responseJson4);
 
   $("#results2").empty();
   //  <iframe src="https://en.wikipedia.org/wiki/Atlantis" frameborder="0" class="wikiFrame"></iframe>
   if (responseJson4.query.search.length === 0) {
     $("#results2").append(`<h2>Sorry, no wikipedia article here</h2>`);
   } else {
-    const { title, snippet } = responseJson4.query.search[0];
+    const {
+      title,
+      snippet
+    } = responseJson4.query.search[0];
 
     let S = snippet;
 
@@ -410,9 +411,7 @@ function displayWiki(responseJson4) {
 
       end = S.lastIndexOf(":");
       let startS = S.substr(0, start);
-      // console.log(startS);
       let endS = S.substr(end + 2);
-      // console.log(endS);
       S = startS + endS;
     }
 
@@ -420,7 +419,6 @@ function displayWiki(responseJson4) {
     S.replace(/    /g, "   ");
     S.replace(/   /g, "  ");
     S.replace(/  /g, " ");
-    console.log(S);
     $("#results2").append(`<h2>${title}</h2>
       <blockquote>"${S}..."</blockquote> 
       <button class="showFullWiki" role="toggle">&lt;See Full Article&gt;</button>
@@ -447,8 +445,16 @@ function displayNews(responseJson5) {
   <h3>Near ${city}</h3>
   <button class="showFullNews" role="toggle">&lt;View Articles&gt;</button>`);
 
-  for (let i = 0; (i < responseJson5.articles.length) & (i < 10); i++) {
-    const { url, urlToImage, description, source, title, author } = responseJson5.articles[i];
+  for (let i = 0;
+    (i < responseJson5.articles.length) & (i < 10); i++) {
+    const {
+      url,
+      urlToImage,
+      description,
+      source,
+      title,
+      author
+    } = responseJson5.articles[i];
 
     if (!description) {
       continue;
@@ -501,7 +507,6 @@ function fetchAQ(city, region, country) {
   const region2 = encodeURI(region);
   const city2 = encodeURI(city);
   const aqURL = `https://api.airvisual.com/v2/city?city=${city2}&state=${region2}&country=${country2}&key=CpizzCTn5NTozBHEW`;
-  // console.log(aqURL);
 
   fetch(aqURL)
     .then(res => {
@@ -522,7 +527,6 @@ function fetchNews(region) {
   const region2 = `${encodeURI(region)}%20air%20health`;
   const apiKey3 = "13b5bb62016543439061414e0e3274bf";
   const newsURL = `https://newsapi.org/v2/everything?q=${region2}&language=en&sortBy=relevancy&apiKey=${apiKey3}`;
-  console.log(newsURL);
 
   fetch(newsURL)
     .then(res => {
@@ -569,7 +573,7 @@ function watchForm() {
     const country = $("#country").val();
     const region = $("#region").val();
     const city = $("#city").val();
-    console.log(`Getting results for ${city}`);
+    console.log(`Getting results for ${city}...`);
     fetchAll(city, region, country);
   });
 }
