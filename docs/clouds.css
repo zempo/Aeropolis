@@ -40,19 +40,10 @@ body {
     -moz-transform: scale(0.7);
     transform: scale(0.7);
     opacity: 0.8;
-}
-
-#clouds1:hover .cloud:nth-child(1),
-#clouds1:active .cloud:nth-child(1),
-#clouds1:active .clouds:nth-child(1) {
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
-    transform: scale(0.7);
-    opacity: 0.8;
-    -webkit-animation: moveclouds 24s ease-in 6;
-    -moz-animation: moveclouds 24s ease-in 6;
-    -o-animation: moveclouds 24s ease-in 6;
-    animation: moveclouds 24s ease-in 6;
+    -webkit-animation: moveclouds 22s ease-in infinite;
+    -moz-animation: moveclouds 22s ease-in infinite;
+    -o-animation: moveclouds 22s ease-in infinite;
+    animation: moveclouds 22s ease-in infinite;
 }
 
 #clouds1 .cloud:nth-child(2) {
@@ -61,19 +52,10 @@ body {
     -moz-transform: scale(0.7);
     transform: scale(0.7);
     opacity: 0.65;
-}
-
-#clouds1:hover .cloud:nth-child(2),
-#clouds1:active .cloud:nth-child(2),
-#clouds1:active .clouds:nth-child(2) {
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
-    transform: scale(0.7);
-    opacity: 0.65;
-    -webkit-animation: moveclouds 24s ease-in 6;
-    -moz-animation: moveclouds 24s ease-in 6;
-    -o-animation: moveclouds 24s ease-in 6;
-    animation: moveclouds 24s ease-in 6;
+    -webkit-animation: moveclouds 24s ease-in infinite;
+    -moz-animation: moveclouds 24s ease-in infinite;
+    -o-animation: moveclouds 24s ease-in infinite;
+    animation: moveclouds 24s ease-in infinite;
 }
 
 #clouds1 .cloud:nth-child(3) {
@@ -82,19 +64,10 @@ body {
     -moz-transform: scale(0.7);
     transform: scale(0.7);
     opacity: 0.8;
-}
-
-#clouds1:hover .cloud:nth-child(3),
-#clouds1:active .cloud:nth-child(3),
-#clouds1:active .clouds:nth-child(3) {
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
-    transform: scale(0.7);
-    opacity: 0.7;
-    -webkit-animation: moveclouds 24s ease-in 6;
-    -moz-animation: moveclouds 24s ease-in 6;
-    -o-animation: moveclouds 24s ease-in 6;
-    animation: moveclouds 24s ease-in 6;
+    -webkit-animation: moveclouds 23s ease-in infinite;
+    -moz-animation: moveclouds 23s ease-in infinite;
+    -o-animation: moveclouds 23s ease-in infinite;
+    animation: moveclouds 23s ease-in infinite;
 }
 
 #clouds1 .cloud:nth-child(4) {
@@ -103,19 +76,10 @@ body {
     -moz-transform: scale(0.7);
     transform: scale(0.7);
     opacity: 0.7;
-}
-
-#clouds1:hover .cloud:nth-child(4),
-#clouds1:active .cloud:nth-child(4),
-#clouds1:active .clouds:nth-child(4) {
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
-    transform: scale(0.7);
-    opacity: 0.7;
-    -webkit-animation: moveclouds 24s ease-in 6;
-    -moz-animation: moveclouds 24s ease-in 6;
-    -o-animation: moveclouds 24s ease-in 6;
-    animation: moveclouds 24s ease-in 6;
+    -webkit-animation: moveclouds 24s ease-in infinite;
+    -moz-animation: moveclouds 24s ease-in infinite;
+    -o-animation: moveclouds 24s ease-in infinite;
+    animation: moveclouds 24s ease-in infinite;
 }
 
 #clouds1 .cloud:nth-child(5) {
@@ -124,19 +88,10 @@ body {
     -moz-transform: scale(0.7);
     transform: scale(0.7);
     opacity: 0.7;
-}
-
-#clouds1:hover .cloud:nth-child(5),
-#clouds1:active .cloud:nth-child(5),
-#clouds1:active .clouds:nth-child(5) {
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
-    transform: scale(0.7);
-    opacity: 0.7;
-    -webkit-animation: moveclouds 24s ease-in 6;
-    -moz-animation: moveclouds 24s ease-in 6;
-    -o-animation: moveclouds 24s ease-in 6;
-    animation: moveclouds 24s ease-in 6;
+    -webkit-animation: moveclouds 22s ease-in infinite;
+    -moz-animation: moveclouds 22s ease-in infinite;
+    -o-animation: moveclouds 22s ease-in infinite;
+    animation: moveclouds 22s ease-in infinite;
 }
 
 #clouds1 .cloud:nth-child(6) {
@@ -145,19 +100,10 @@ body {
     -moz-transform: scale(0.7);
     transform: scale(0.7);
     opacity: 0.6;
-}
-
-#clouds1:hover .cloud:nth-child(6),
-#clouds1:active .cloud:nth-child(6),
-#clouds1:active .clouds:nth-child(6) {
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
-    transform: scale(0.7);
-    opacity: 0.6;
-    -webkit-animation: moveclouds 24s ease-in 6;
-    -moz-animation: moveclouds 24s ease-in 6;
-    -o-animation: moveclouds 24s ease-in 6;
-    animation: moveclouds 24s ease-in 6;
+    -webkit-animation: moveclouds 21s ease-in infinite;
+    -moz-animation: moveclouds 21s ease-in infinite;
+    -o-animation: moveclouds 21s ease-in infinite;
+    animation: moveclouds 21s ease-in infinite;
 }
 
 /* Cloud psuedo element fluffs */
@@ -199,44 +145,108 @@ body {
 
 @-webkit-keyframes moveclouds {
     0% {
-        -webkit-transform: scale(0.7) translateX(0%);
+        -webkit-transform: scale(0) translateX(0%);
+    }
+
+    2% {
+        -webkit-transform: scale(0.1);
+    }
+
+    4% {
+        -webkit-transform: scale(0.3);
+    }
+
+    6% {
+        -webkit-transform: scale(0.5);
+    }
+
+    8% {
+        -webkit-transform: scale(0.7);
     }
 
     100% {
-        -webkit-transform: scale(1) translateX(-667%);
+        -webkit-transform: scale(1) translateX(-500%);
         opacity: 1;
     }
 }
 
 @-moz-keyframes moveclouds {
     0% {
-        -moz-transform: scale(0.7) translateX(0%);
+        -moz-transform: scale(0) translateX(0%);
+    }
+
+    2% {
+        -moz-transform: scale(0.1);
+    }
+
+    4% {
+        -moz-transform: scale(0.3);
+    }
+
+    6% {
+        -moz-transform: scale(0.5);
+    }
+
+    8% {
+        -moz-transform: scale(0.7);
     }
 
     100% {
-        -moz-transform: scale(1) translateX(-667%);
+        -moz-transform: scale(1) translateX(-500%);
         opacity: 1;
     }
 }
 
 @-o-keyframes moveclouds {
     0% {
-        -o-transform: scale(0.7) translateX(0%);
+        -o-transform: scale(0) translateX(0%);
+    }
+
+    2% {
+        -o-transform: scale(0.1);
+    }
+
+    4% {
+        -o-transform: scale(0.3);
+    }
+
+    6% {
+        -o-transform: scale(0.5);
+    }
+
+    8% {
+        -o-transform: scale(0.7);
     }
 
     100% {
-        -o-transform: scale(1) translateX(-667%);
+        -o-transform: scale(1) translateX(-500%);
         opacity: 1;
     }
 }
 
 @keyframes moveclouds {
     0% {
-        transform: scale(0.7) translateX(0%);
+        transform: scale(0) translateX(0%);
+    }
+
+    2% {
+        transform: scale(0.1);
+    }
+
+    4% {
+        transform: scale(0.3);
+    }
+
+    6% {
+        transform: scale(0.5);
+    }
+
+    8% {
+        transform: scale(0.7);
     }
 
     100% {
-        transform: scale(1) translateX(-667%);
+        transform: scale(1) translateX(-500%);
         opacity: 1;
     }
 }

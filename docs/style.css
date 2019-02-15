@@ -330,7 +330,7 @@ blockquote span {
 }
 
 #results3 p {
-  width: 50%;
+  margin: auto 25%;
 }
 
 @media screen and (min-width: 510px) {
