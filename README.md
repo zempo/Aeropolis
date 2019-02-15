@@ -1,4 +1,4 @@
-<h1 align="center"> Healthopolis: How's the Air in Your City? </h1>
+<h1 align="center"> Aeropolis: How's the Air in Your City? </h1>
 
 <img src="https://github.com/zempo/Healthopolis/blob/master/docs/media/City.svg" alt="picture of city" height="200" width="898" />
 <h1 align="center" href="https://zempo.github.io/Healthopolis/">
@@ -31,11 +31,11 @@ See it Live
 
 5. [News API:](https://newsapi.org/) For any news articles pertaining to each city searched & its environmental health.
 
-6. [Media Wiki Api:](https://www.mediawiki.org/wiki/API:Main_page)
+6. [Media Wiki Api:](https://www.mediawiki.org/wiki/API:Main_page) For wikipedia articles pertaining to each city.
 
 ## Sources for onload example
-
-1. [wave image](http://3.bp.blogspot.com/-K-hWaquRMIA/UXsRrLBshJI/AAAAAAAAASg/BmLEdogAZDw/s1600/GW-0022.jpg)
+ 
+1. [wave image](http://3.bp.blogspot.com/-K-hWaquRMIA/UXsRrLBshJI/AAAAAAAAASg/BmLEdogAZDw/s1600/GW-0022.jpg) 
 
 
 ## Disclaimer About Air Quality Calculations 
