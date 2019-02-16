@@ -34,21 +34,6 @@ hazardous  300 < x, avoid city, if possible. Emergency conditions might be decla
 News Key: 13b5bb62016543439061414e0e3274bf
 News Endpoint: 
 
-common errors: 
-403, forbidden (too many requests)
-
-$.change.event @ main.js:52
-dispatch @ jquery.min.js:2
-y.handle @ jquery.min.js:2
-ListPicker._handleKeyDown
-index.html:1 
-Access to fetch at
- 'https://api.airvisual.com/v2/states?country=Sweden&key=CpizzCTn5NTozBHEW' 
- from origin 'null' has been blocked by CORS policy:
-  No 'Access-Control-Allow-Origin' header is present on the requested resource.
- If an opaque response serves your needs, set the request's mode to 'no-cors'
-  to fetch the resource with CORS disabled.
-
    mymap.flyTo([latitude, longitude], 10);
    let marker = L.marker([latitude, longitude])
    marker.addTo(mymap);
@@ -75,6 +60,8 @@ function updateRegion(responseJson) {
     let opt = responseJson.data[i].state;
 
     $("#region").append(`<option value="${opt}">${opt}</option>`);
+    $("#city").empty();
+    $("#city").append(`<option value="">Select Region</option>`);
   }
 }
 
@@ -112,7 +99,7 @@ function watchSelect() {
         if (res.ok) {
           return res.json();
         }
-        alert(`Too many requests! Please wait 30 seconds.`);
+        alert(`Too many requests or city data unavailable! Please wait 30 seconds or try a different.`);
       })
       .then(responseJson => {
         updateRegion(responseJson);
@@ -134,7 +121,7 @@ function watchSelect() {
         if (res.ok) {
           return res.json();
         }
-        alert(`Too many requests! Please wait 30 seconds.`);
+        alert(`Too many requests or city data unavailable! Please wait 30 seconds or try a different.`);
       })
       .then(responseJson2 => {
         updateCity(responseJson2);
@@ -460,7 +447,7 @@ function displayNews(responseJson5) {
       continue;
     } else if (!author && !urlToImage) {
       $("#results3").append(
-        `<h3><a href="${url}">${title}</a></h3>
+        `<h3 title="link to story"><a href="${url}">${title}</a></h3>
                 <p><b>From ${source.name}</b></p>
                 <p>${description}</p>`
       );
@@ -468,7 +455,7 @@ function displayNews(responseJson5) {
       // hide image, figure out null to hide image
     } else if (!author) {
       $("#results3").append(
-        `<h3><a href="${url}">${title}</a></h3>
+        `<h3 title="link to story"><a href="${url}">${title}</a></h3>
             <p><b>From ${source.name}</b></p>
             <img src="${urlToImage}" alt="Image for article ${i}"> 
             <p>${description}</p>`
@@ -476,7 +463,7 @@ function displayNews(responseJson5) {
       continue;
     } else if (!urlToImage) {
       $("#results3").append(
-        `<h3><a href="${url}">${title}</a></h3>
+        `<h3 title="link to story"><a href="${url}">${title}</a></h3>
             <p><b>From ${source.name}</b></p>
             <p><b>By ${author}</b></p>
             <p>${description}</p>`
@@ -484,7 +471,7 @@ function displayNews(responseJson5) {
       continue;
     } else {
       $("#results3").append(
-        `<h3><a href="${url}">${title}</a></h3>
+        `<h3 title="link to story"><a href="${url}">${title}</a></h3>
             <p><b>From ${source.name}</b></p>
             <p><b>By ${author}</b></p>
             <img src="${urlToImage}" alt="Image for article ${i}"> 

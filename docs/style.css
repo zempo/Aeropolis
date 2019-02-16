@@ -328,6 +328,9 @@ blockquote span {
   color: white;
   background: #010414;
 }
+#results3 a {
+  color: white;
+}
 
 #results3 p {
   margin: auto 15% 20px;
