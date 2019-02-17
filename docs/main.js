@@ -504,7 +504,7 @@ function showWiki() {
     $("a[href|='#results2']").css("border-bottom", "3px solid #010414");
 
     $("a[href|='#results2']").css("opacity", "1");
-    $(".showFullWiki").focus();
+    $("a[href|='#results2']").focus();
 
     $("a[href|='#results2']")
       .siblings("a[href|='#results3']")
@@ -551,7 +551,7 @@ function showNews() {
     // visit news tab, style tabs accordingly
     $("a[href|='#results3']").css("border-bottom", "3px solid #010414");
     $("a[href|='#results3']").css("opacity", "1");
-    $(".showFullNews").focus();
+    $("a[href|='#results3']").focus();
 
     $("a[href|='#results3']")
       .siblings("a[href|='#results2']")
