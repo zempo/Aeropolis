@@ -366,7 +366,7 @@ function displayNews(responseJson5) {
       author
     } = responseJson5.articles[i];
 
-    if (!description || author === '#printStr($author.authorFirstName) #printStr($author.authorLastName)') {
+    if (!description) {
       continue;
     } else if (!author && !urlToImage) {
       $("#results3").append(
@@ -375,8 +375,8 @@ function displayNews(responseJson5) {
                 <p>${description}</p>`
       );
       continue;
-      // hide image, figure out null to hide image
-    } else if (!author) {
+
+    } else if (!author || author === '#printStr($author.authorFirstName) #printStr($author.authorLastName)') {
       $("#results3").append(
         `<h3 title="link to story"><a href="${url}">${title}</a></h3>
             <p><b>From ${source.name}</b></p>

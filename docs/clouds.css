@@ -9,7 +9,7 @@ body {
     width: 100%;
     /* Use border as sizing reference */
     /* border: 2px solid blue; */
-    /* Delete when done */
+    
     position: absolute;
 }
 
@@ -23,7 +23,6 @@ body {
     background: rgba(243, 237, 237, 1);
     /* Use to size cloud div */
     /* border: 1px solid red;*/
-    /* Delete when ready */
 
     border-radius: 100%;
     -moz-border-radius: 100%;
