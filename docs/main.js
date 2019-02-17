@@ -493,8 +493,8 @@ function watchForm() {
 /*//////////////////// Toggle Results Tabs  ///////////////////// */
 $(document).ready(function () {
   // style both unvisited tabs
-  $("a[href|=#results2]").css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
-  $("a[href|=#results3]").css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
+  $("a[href|='#results2']").css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
+  $("a[href|='#results3']").css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
 
 });
 
