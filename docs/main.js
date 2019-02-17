@@ -1,55 +1,5 @@
 "use strict";
 
-/*
-Notes
-
-Air Quality Key: 
-Air Quality Endpoints:
-
-https://api.airvisual.com/v2/countries?key=CpizzCTn5NTozBHEW
-supported countries 
-
-https://api.airvisual.com/v2/states?country=Canada&key=CpizzCTn5NTozBHEW
-supported states 
-
-https://api.airvisual.com/v2/cities?state=Colorado&country=USA&key=CpizzCTn5NTozBHEW
-supported cities 
-
-http://api.airvisual.com/v2/city?city=Los%20Angeles&state=California&country=USA&key=CpizzCTn5NTozBHEW
-city data 
-
-https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=Colorado
-wikipedia endpoint 
-
-great, <= 25, no overall health risk
-good, 25 < x <= 50, minimal health risk, some risk areas (factories, etc)
-fair, 50 < x <= 100, low risk, some pollutants might affect vulnerable groups
-poor, 100 < x <= 125,  vulnerable groups more likely to be affected, some warnings 
-low, 125 < x <= 150,  vulnerable groups more likely to be affected + long term concerns increase, some warnings 
-unhealthy 150 < x <= 200,  health effects likely for everyone, sensitive groups more likely to need hospitalization
-very unhealthy 200 < x <= 300,  Many jurisdictions will issue a health alert, hospitalizations more common for general population
-hazardous  300 < x, avoid city, if possible. Emergency conditions might be declared.
-                  Entire population is likely to be affected
-
-News Key: 13b5bb62016543439061414e0e3274bf
-News Endpoint: 
-
-   mymap.flyTo([latitude, longitude], 10);
-   let marker = L.marker([latitude, longitude])
-   marker.addTo(mymap);
-   const popup = marker.bindPopup(`<b>${city}, ${country}: ${aqi}</b>`);
-   let circle = L.circle([latitude, longitude], {
-       color: 'red',
-       fillColor: '#f03',
-       fillOpacity: 0.5,
-       radius: 2000 
-   })
-   setTimeout( () => {
-       circle.addTo(mymap);
-       popup.openPopup(); 
-    }, 2800);  
-*/
-
 /* ////////////////////////////////// Input //////////////////////////////// */
 
 function updateRegion(responseJson) {
@@ -134,10 +84,11 @@ function watchSelect() {
 const apiKey1 = "CpizzCTn5NTozBHEW"; // air quality
 const apiKey2 = "pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q"; // maps
 const apiKey3 = "13b5bb62016543439061414e0e3274bf"; // news
-let mymap;
+let mymap; // initialize map div 
 
 console.log("Script Loaded! Waiting for Input...");
 
+// update text results div and render marker in map div 
 function displayAQ(responseJson3) {
   const aqi = responseJson3.data.current.pollution.aqius;
   const [longitude, latitude] = responseJson3.data.location.coordinates;
@@ -152,8 +103,6 @@ function displayAQ(responseJson3) {
         <a href="#results2" role="tab">City Wiki</a>
         <a href="#results3" role="tab">City News</a>`
     );
-    // 1 small white cloud w/ common pollutant
-    // dark-green bar below city vector, 100%
     mymap.flyTo([latitude, longitude], 10);
     let marker = L.marker([latitude, longitude]);
     marker.addTo(mymap);
@@ -168,7 +117,6 @@ function displayAQ(responseJson3) {
       circle.addTo(mymap);
       popup.openPopup();
     }, 2000);
-    // ^_^ excited sun!
   } else if (aqi > 25 && aqi <= 50) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
@@ -177,8 +125,6 @@ function displayAQ(responseJson3) {
         <a href="#results2" role="tab">City Wiki</a>
         <a href="#results3" role="tab">City News</a>`
     );
-    // 2 small gray clouds w/ common pollutant
-    // medium-green bar below city vector, 87.5%
     mymap.flyTo([latitude, longitude], 10);
     let marker = L.marker([latitude, longitude]);
     marker.addTo(mymap);
@@ -193,7 +139,6 @@ function displayAQ(responseJson3) {
       circle.addTo(mymap);
       popup.openPopup();
     }, 2000);
-    // :) happy sun
   } else if (aqi > 50 && aqi <= 100) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
@@ -202,8 +147,6 @@ function displayAQ(responseJson3) {
         <a href="#results2" role="tab">City Wiki</a>
         <a href="#results3" role="tab">City News</a>`
     );
-    // 2 clouds, 1 small gray, 1 medium gray
-    // light-green below city vector, 75%
     mymap.flyTo([latitude, longitude], 10);
     let marker = L.marker([latitude, longitude]);
     marker.addTo(mymap);
@@ -218,7 +161,6 @@ function displayAQ(responseJson3) {
       circle.addTo(mymap);
       popup.openPopup();
     }, 2000);
-    // smirking sun
   } else if (aqi > 100 && aqi <= 125) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
@@ -227,8 +169,6 @@ function displayAQ(responseJson3) {
         <a href="#results2" role="tab">City Wiki</a>
         <a href="#results3" role="tab">City News</a>`
     );
-    // 3 clouds, 2 small gray, 1 medium gray
-    // bright yellow, 62.5%
     mymap.flyTo([latitude, longitude], 10);
     let marker = L.marker([latitude, longitude]);
     marker.addTo(mymap);
@@ -243,7 +183,6 @@ function displayAQ(responseJson3) {
       circle.addTo(mymap);
       popup.openPopup();
     }, 2000);
-    // -_- concerned sun, 1 sweat drop, meh-face
   } else if (aqi > 125 && aqi <= 150) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
@@ -252,8 +191,6 @@ function displayAQ(responseJson3) {
         <a href="#results2" role="tab">City Wiki</a>
         <a href="#results3" role="tab">City News</a>`
     );
-    // 4 clouds, 3 small gray, 1 medium gray
-    // orange, 50%
     mymap.flyTo([latitude, longitude], 10);
     let marker = L.marker([latitude, longitude]);
     marker.addTo(mymap);
@@ -268,7 +205,6 @@ function displayAQ(responseJson3) {
       circle.addTo(mymap);
       popup.openPopup();
     }, 2000);
-    // :/ ...sweating sun, grimacing, 2 drops
   } else if (aqi > 150 && aqi <= 200) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
@@ -277,8 +213,6 @@ function displayAQ(responseJson3) {
         <a href="#results2" role="tab">City Wiki</a>
         <a href="#results3" role="tab">City News</a>`
     );
-    // 5 clouds, 3 small gray, 2 medium gray
-    // red, 37.5%
     mymap.flyTo([latitude, longitude], 10);
     let marker = L.marker([latitude, longitude]);
     marker.addTo(mymap);
@@ -293,7 +227,6 @@ function displayAQ(responseJson3) {
       circle.addTo(mymap);
       popup.openPopup();
     }, 2000);
-    // :D, sun wearing surgical mask
   } else if (aqi > 200 && aqi <= 300) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
@@ -302,8 +235,6 @@ function displayAQ(responseJson3) {
         <a href="#results2" role="tab">City Wiki</a>
         <a href="#results3" role="tab">City News</a>`
     );
-    // 6 clouds, 3 small gray, 3 medium gray
-    // purple, 25%
     mymap.flyTo([latitude, longitude], 10);
     let marker = L.marker([latitude, longitude]);
     marker.addTo(mymap);
@@ -318,7 +249,6 @@ function displayAQ(responseJson3) {
       circle.addTo(mymap);
       popup.openPopup();
     }, 2000);
-    // : D, sun wearing WWI gas-mask
   } else if (aqi > 300) {
     $(".results1").append(
       `<h2>The Air Quality for ${city}, ${country} is ${aqi}</h2>
@@ -327,8 +257,6 @@ function displayAQ(responseJson3) {
         <a href="#results2" role="tab">City Wiki</a>
         <a href="#results3" role="tab">City News</a>`
     );
-    // 6 clouds, 2 small gray, 4 medium gray
-    // maroon, 12.5%
     mymap.flyTo([latitude, longitude], 10);
     let marker = L.marker([latitude, longitude]);
     marker.addTo(mymap);
@@ -343,10 +271,9 @@ function displayAQ(responseJson3) {
       circle.addTo(mymap);
       popup.openPopup();
     }, 2000);
-    // : O, sun wearing hazmat suit
   } else {
     $(".results1").append(`<h2>Error 404: Air Quality Index data is absent from this city.</h2>`);
-    // funny error message
+    // backup error message
   }
 }
 
@@ -354,7 +281,7 @@ function initializeMap() {
   // display any relevant data
   mymap = L.map("mapid");
   mymap.setView([0, 0], 1);
-
+  // zoom-out + set tiles
   L.tileLayer(
     "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q", {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -366,10 +293,9 @@ function initializeMap() {
 }
 
 function displayWiki(responseJson4) {
-  // console.log(responseJson4);
-
+  // remove example wikipedia text
   $("#results2").empty();
-  //  <iframe src="https://en.wikipedia.org/wiki/Atlantis" frameborder="0" class="wikiFrame"></iframe>
+  //  edge case, no results
   if (responseJson4.query.search.length === 0) {
     $("#results2").append(`<h2>Sorry, no wikipedia article here</h2>`);
   } else {
@@ -377,7 +303,7 @@ function displayWiki(responseJson4) {
       title,
       snippet
     } = responseJson4.query.search[0];
-
+    // remove unnececessary text in description string 
     let S = snippet;
 
     while (S.includes("(")) {
@@ -386,9 +312,8 @@ function displayWiki(responseJson4) {
 
       end = S.indexOf(")");
       let startS = S.substr(0, start);
-      // console.log(startS);
       let endS = S.substr(end + 2);
-      // console.log(endS);
+
       S = startS + endS;
     }
 
@@ -415,9 +340,7 @@ function displayWiki(responseJson4) {
 
 function displayNews(responseJson5) {
   $("#results3").empty();
-  console.log(responseJson5);
-  console.log(responseJson5.totalResults);
-  // erase Atlantis data
+  // erase example data
   let noResults = [
     `Sometimes, no news is good news!`,
     `Error: All journalists in this city use invisible ink.`,
@@ -443,7 +366,7 @@ function displayNews(responseJson5) {
       author
     } = responseJson5.articles[i];
 
-    if (!description) {
+    if (!description || author === '#printStr($author.authorFirstName) #printStr($author.authorLastName)') {
       continue;
     } else if (!author && !urlToImage) {
       $("#results3").append(
@@ -510,7 +433,6 @@ function fetchAQ(city, region, country) {
 
 function fetchNews(region) {
   // grab news data
-  // const cityState = `${encodeURI(region)}%20${encodeURI(city)}%20air%20health`;
   const region2 = `${encodeURI(region)}%20air%20health`;
   const apiKey3 = "13b5bb62016543439061414e0e3274bf";
   const newsURL = `https://newsapi.org/v2/everything?q=${region2}&language=en&sortBy=relevancy&apiKey=${apiKey3}`;
@@ -554,6 +476,7 @@ function fetchAll(city, region, country) {
 }
 
 function watchForm() {
+  // watch for form input results
   $("form").submit(event => {
     event.preventDefault();
 
@@ -567,6 +490,7 @@ function watchForm() {
 
 /*//////////////////// Toggle Results Tabs  ///////////////////// */
 $(document).ready(function () {
+  // style both unvisited tabs
   $("a[href|=#results2]").css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
   $("a[href|=#results3]").css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
 
@@ -574,6 +498,7 @@ $(document).ready(function () {
 
 function showWiki() {
   $(".results1").on("click", "a[href|='#results2']", e => {
+    // visit wiki tab, style tabs accordingly
     $("a[href|='#results2']").css("border-bottom", "3px solid #010414");
 
     $("a[href|='#results2']").css("opacity", "1");
@@ -587,6 +512,7 @@ function showWiki() {
   });
 
   $("#results2").on("click", ".showFullWiki", e => {
+    // expand wiki iframe
     $(".showFullWiki")
       .parent()
       .css("height", "auto");
@@ -601,6 +527,7 @@ function showWiki() {
   });
 
   $("#results2").on("click", ".hideFullWiki", e => {
+    // hide wiki iframe
     $(".showFullWiki")
       .parent()
       .css("height", "303.5px");
@@ -618,6 +545,7 @@ function showWiki() {
 function showNews() {
 
   $(".results1").on("click", "a[href|='#results3']", e => {
+    // visit news tab, style tabs accordingly
     $("a[href|='#results3']").css("border-bottom", "3px solid #010414");
     $("a[href|='#results3']").css("opacity", "1");
 
@@ -630,6 +558,7 @@ function showNews() {
   });
 
   $("#results3").on("click", ".showFullNews", e => {
+    // show news articles
     $(".showFullNews")
       .parent()
       .css("height", "auto");
@@ -639,6 +568,7 @@ function showNews() {
   });
 
   $("#results3").on("click", ".hideFullNews", e => {
+    // hide news articles
     $(".hideFullNews")
       .parent()
       .css("height", "303.5px");

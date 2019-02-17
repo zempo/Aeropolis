@@ -7,32 +7,6 @@
   src: local("fonts/ITCAvantGardePro-Bk"), url("fonts/ITCAvantGardePro-Bk.woff") format("woff");
 }
 
-/*
-font-family: 'Major Mono Display', monospace;
-font-family: 'Nanum Gothic', sans-serif;
-
-smooth selector transitions, :active, slow open?
-
-if button disabled or enabled 
-:disabled  or :enabled 
-
-News articles still show alt-text
-need to hide images if there is a null image source 
-Or no image source
-
-Fix accidental zoom of map (move to bottom? make map part of slide out menu?)
-
-Finish creating all proposed display vectors 
-Use grid 
-Place city vector above map 
-Place news in side-menu (click to expand): pulse animation?
-
-use 'sticky clouds', scroll attachment and combining multiple backgrounds 
-file:///home/solomon/Odin/test5.html 
-             and 
-https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds
-*/
-
 /* General Styles */
 * {
   box-sizing: border-box;
@@ -234,6 +208,10 @@ form {
 }
 
 .results1 a[href="#results3"] {
+  opacity: 0.8;
+  border-bottom: 2px solid rgba(245, 239, 239, 0.425);
+}
+.results1 a[href="#results2"] {
   opacity: 0.8;
   border-bottom: 2px solid rgba(245, 239, 239, 0.425);
 }
