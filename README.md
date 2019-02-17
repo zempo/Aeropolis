@@ -27,7 +27,7 @@ See it Live
 
 3. [Leaflet.js:](https://leafletjs.com/examples/quick-start/) For mapping each city
 
-4. [Mapbox.com](https://www.mapbox.com/)
+4. [Mapbox.com](https://www.mapbox.com/) for access to leaflet api. 
 
 5. [News API:](https://newsapi.org/) For any news articles pertaining to each city searched & its environmental health.
 
