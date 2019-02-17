@@ -566,6 +566,11 @@ function watchForm() {
 }
 
 /*//////////////////// Toggle Results Tabs  ///////////////////// */
+$(document).ready(function () {
+  $("a[href|=#results2]").css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
+  $("a[href|=#results3]").css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
+
+});
 
 function showWiki() {
   $(".results1").on("click", "a[href|='#results2']", e => {
@@ -611,6 +616,7 @@ function showWiki() {
 }
 
 function showNews() {
+
   $(".results1").on("click", "a[href|='#results3']", e => {
     $("a[href|='#results3']").css("border-bottom", "3px solid #010414");
     $("a[href|='#results3']").css("opacity", "1");
