@@ -344,8 +344,10 @@ function displayNews(responseJson5) {
   let noResults = [
     `Sometimes, no news is good news!`,
     `Error: All journalists in this city use invisible ink.`,
-    `Haha, I guess people aren't tweeting about your city that much, huh?`,
-    `Well, it seems as if nobody is writing about this city. Would you do the honors?`
+    `Looks as if people aren't tweeting about this city that much, huh?`,
+    `Well, it seems as if nobody is writing about this city. Would you do the honors?`,
+    `Error: All journalists in this city left the lens cap on.`,
+    `Error: My dog ate all the news for this city.`
   ];
   // length of 4
   let pickResponse = Math.floor(Math.random() * noResults.length);
