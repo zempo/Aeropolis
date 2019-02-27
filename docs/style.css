@@ -106,7 +106,7 @@ select option,
 button {
   font-family: "ITCAvantGardePro-Bk";
   font-weight: lighter;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 select {
@@ -329,7 +329,7 @@ blockquote span {
   button {
     font-family: "ITCAvantGardePro-Bk";
     font-weight: lighter;
-    font-size: 30px;
+    font-size: 25px;
   }
 
   .results1 a {
@@ -401,6 +401,15 @@ blockquote span {
       ". l2 l3 ."
       ". regions city ."
       ". search search .";
+  }
+
+  label, 
+  select,
+  select option,
+  button {
+  font-family: "ITCAvantGardePro-Bk";
+  font-weight: lighter;
+  font-size: 30px;
   }
 
   .results1 a {
