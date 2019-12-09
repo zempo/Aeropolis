@@ -4,7 +4,8 @@
   font-family: "ITCAvantGardePro-Bk";
   font-style: normal;
   font-weight: normal;
-  src: local("fonts/ITCAvantGardePro-Bk"), url("fonts/ITCAvantGardePro-Bk.woff") format("woff");
+  src: local("fonts/ITCAvantGardePro-Bk"),
+    url("fonts/ITCAvantGardePro-Bk.woff") format("woff");
 }
 
 /* General Styles */
@@ -16,7 +17,8 @@ body {
   display: grid;
   margin: 0;
   padding: 0;
-  background-image: linear-gradient(to top,
+  background-image: linear-gradient(
+    to top,
     #010414 6%,
     #3f51b1 7%,
     #5a55ae 13%,
@@ -26,7 +28,8 @@ body {
     #cc6b8e 62%,
     #f18271 75%,
     #f3a469 87%,
-    #f7c978 100%);
+    #f7c978 100%
+  );
 }
 
 main {
@@ -76,6 +79,14 @@ button {
 
 #results3 button {
   margin-bottom: 150px;
+}
+
+.logo {
+  max-height: 50px;
+  position: relative;
+  top: 15px;
+  /* left: 5px; */
+  cursor: pointer;
 }
 
 /* Font starter */
@@ -316,7 +327,6 @@ blockquote span {
 }
 
 @media screen and (min-width: 510px) {
-
   .results1 h2,
   .input h2 {
     font-weight: bolder;
@@ -403,13 +413,13 @@ blockquote span {
       ". search search .";
   }
 
-  label, 
+  label,
   select,
   select option,
   button {
-  font-family: "ITCAvantGardePro-Bk";
-  font-weight: lighter;
-  font-size: 30px;
+    font-family: "ITCAvantGardePro-Bk";
+    font-weight: lighter;
+    font-size: 30px;
   }
 
   .results1 a {

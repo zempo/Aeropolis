@@ -26,13 +26,13 @@ function updateCity(responseJson2) {
     $("#city").append(`<option value="${opt}">${opt}</option>`);
   }
 
-  $("#city").change(function () {
+  $("#city").change(function() {
     $(".searchBtn").prop("disabled", false);
   });
 }
 
 function watchSelect() {
-  $(document).ready(function () {
+  $(document).ready(function() {
     $(".searchBtn").prop("disabled", true);
   });
 
@@ -49,7 +49,9 @@ function watchSelect() {
         if (res.ok) {
           return res.json();
         }
-        alert(`Too many requests or city data unavailable! Please wait 30 seconds or try a different.`);
+        alert(
+          `Too many requests or city data unavailable! Please wait 30 seconds or try a different.`
+        );
       })
       .then(responseJson => {
         updateRegion(responseJson);
@@ -71,7 +73,9 @@ function watchSelect() {
         if (res.ok) {
           return res.json();
         }
-        alert(`Too many requests or city data unavailable! Please wait 30 seconds or try a different.`);
+        alert(
+          `Too many requests or city data unavailable! Please wait 30 seconds or try a different.`
+        );
       })
       .then(responseJson2 => {
         updateCity(responseJson2);
@@ -82,13 +86,14 @@ function watchSelect() {
 /* ///////////////// Results /////////////////// */
 
 const apiKey1 = "CpizzCTn5NTozBHEW"; // air quality
-const apiKey2 = "pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q"; // maps
+const apiKey2 =
+  "pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q"; // maps
 const apiKey3 = "13b5bb62016543439061414e0e3274bf"; // news
-let mymap; // initialize map div 
+let mymap; // initialize map div
 
 console.log("Script Loaded! Waiting for Input...");
 
-// update text results div and render marker in map div 
+// update text results div and render marker in map div
 function displayAQ(responseJson3) {
   const aqi = responseJson3.data.current.pollution.aqius;
   const [longitude, latitude] = responseJson3.data.location.coordinates;
@@ -272,7 +277,9 @@ function displayAQ(responseJson3) {
       popup.openPopup();
     }, 2000);
   } else {
-    $(".results1").append(`<h2>Error 404: Air Quality Index data is absent from this city.</h2>`);
+    $(".results1").append(
+      `<h2>Error 404: Air Quality Index data is absent from this city.</h2>`
+    );
     // backup error message
   }
 }
@@ -283,11 +290,14 @@ function initializeMap() {
   mymap.setView([0, 0], 1);
   // zoom-out + set tiles
   L.tileLayer(
-    "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q", {
-      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q",
+    {
+      attribution:
+        'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
       id: "mapbox.satellite",
-      accessToken: "pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q"
+      accessToken:
+        "pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q"
     }
   ).addTo(mymap);
 }
@@ -299,11 +309,8 @@ function displayWiki(responseJson4) {
   if (responseJson4.query.search.length === 0) {
     $("#results2").append(`<h2>Sorry, no wikipedia article here</h2>`);
   } else {
-    const {
-      title,
-      snippet
-    } = responseJson4.query.search[0];
-    // remove unnececessary text in description string 
+    const { title, snippet } = responseJson4.query.search[0];
+    // remove unnececessary text in description string
     let S = snippet;
 
     while (S.includes("(")) {
@@ -357,8 +364,7 @@ function displayNews(responseJson5) {
   <h3>Near ${city}</h3>
   <button class="showFullNews" role="toggle">&lt;View Articles&gt;</button>`);
 
-  for (let i = 0;
-    (i < responseJson5.articles.length) & (i < 10); i++) {
+  for (let i = 0; (i < responseJson5.articles.length) & (i < 10); i++) {
     const {
       url,
       urlToImage,
@@ -377,8 +383,11 @@ function displayNews(responseJson5) {
                 <p>${description}</p>`
       );
       continue;
-
-    } else if (!author || author === '#printStr($author.authorFirstName) #printStr($author.authorLastName)') {
+    } else if (
+      !author ||
+      author ===
+        "#printStr($author.authorFirstName) #printStr($author.authorLastName)"
+    ) {
       $("#results3").append(
         `<h3 title="link to story"><a href="${url}">${title}</a></h3>
             <p><b>From ${source.name}</b></p>
@@ -425,7 +434,9 @@ function fetchAQ(city, region, country) {
       if (res.ok) {
         return res.json();
       }
-      alert(`That's odd. It appears this city's data is temporarily unavailable. Try another city =) Our sincere apologies =(`);
+      alert(
+        `That's odd. It appears this city's data is temporarily unavailable. Try another city =) Our sincere apologies =(`
+      );
       // add funny error message image
     })
     .then(responseJson3 => {
@@ -491,11 +502,16 @@ function watchForm() {
 }
 
 /*//////////////////// Toggle Results Tabs  ///////////////////// */
-$(document).ready(function () {
+$(document).ready(function() {
   // style both unvisited tabs
-  $("a[href|='#results2']").css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
-  $("a[href|='#results3']").css("border-bottom", "2px solid rgba(245, 239, 239, 0.425)");
-
+  $("a[href|='#results2']").css(
+    "border-bottom",
+    "2px solid rgba(245, 239, 239, 0.425)"
+  );
+  $("a[href|='#results3']").css(
+    "border-bottom",
+    "2px solid rgba(245, 239, 239, 0.425)"
+  );
 });
 
 function showWiki() {
@@ -546,7 +562,6 @@ function showWiki() {
 }
 
 function showNews() {
-
   $(".results1").on("click", "a[href|='#results3']", e => {
     // visit news tab, style tabs accordingly
     $("a[href|='#results3']").css("border-bottom", "3px solid #010414");

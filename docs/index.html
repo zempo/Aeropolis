@@ -1,245 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" lang="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="Aeropolis: See the air quality (and more!) for thousands of cities around the globe. Live Results!"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="favicon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Aeropolis</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="clouds.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+      crossorigin=""
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" lang="en" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description"
-    content="Aeropolis: See the air quality (and more!) for thousands of cities around the globe. Live Results!" />
-  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png" />
-  <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png" />
-  <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png" />
-  <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png" />
-  <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png" />
-  <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
-  <link rel="manifest" href="favicon/manifest.json" />
-  <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-  <meta name="theme-color" content="#ffffff" />
-  <title>Aeropolis</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-    crossorigin="" />
-  <link rel="stylesheet" href="clouds.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-    crossorigin=""></script>
-</head>
-
-<body>
-  <header role="banner">
-    <h1>
-      <span class="top">Aeropolis</span> <br />
-      <span class="bottom"> Visualize your city </span>
-    </h1>
-    <div id="clouds1" role="presentation">
-      <div class="cloud x1"></div>
-      <div class="cloud x2"></div>
-      <div class="cloud x3"></div>
-      <div class="cloud x4"></div>
-      <div class="cloud x5"></div>
-      <div class="cloud x6"></div>
-    </div>
-
-    <img src="media/City.svg" role="presentation" alt="banner visual: city skyline" />
-  </header>
-  <main role="main">
-    <div class="input" role="search">
-      <h2>Select Your City</h2>
-
-      <form>
-        <label class="label1" for="country">Country</label>
-        <select type="text" name="country" id="country" size="1">
-          <option value="">Select Country</option>
-          <option value="Afghanistan">Afghanistan</option>
-          <option value="Andorra">Andorra</option>
-          <option value="Angola">Angola</option>
-          <option value="Argentina">Argentina</option>
-          <option value="Armenia">Armenia</option>
-          <option value="Australia">Australia</option>
-          <option value="Austria">Austria</option>
-          <option value="Bahrain">Bahrain</option>
-          <option value="Bangladesh">Bangladesh</option>
-          <option value="Belgium">Belgium</option>
-          <option value="Brazil">Brazil</option>
-          <option value="Brunei">Brunei</option>
-          <option value="Bulgaria">Bulgaria</option>
-          <option value="Cambodia">Cambodia</option>
-          <option value="Canada">Canada</option>
-          <option value="Chile">Chile</option>
-          <option value="China">China</option>
-          <option value="Colombia">Colombia</option>
-          <option value="Croatia">Croatia</option>
-          <option value="Curacao">Curacao</option>
-          <option value="Cyprus">Cyprus</option>
-          <option value="Czech Republic">Czech Republic</option>
-          <option value="Denmark">Denmark</option>
-          <option value="Ethiopia">Ethiopia</option>
-          <option value="Finland">Finland</option>
-          <option value="France">France</option>
-          <option value="Germany">Germany</option>
-          <option value="Hong Kong">Hong Kong</option>
-          <option value="Hungary">Hungary</option>
-          <option value="India">India</option>
-          <option value="Indonesia">Indonesia</option>
-          <option value="Iran">Iran</option>
-          <option value="Ireland">Ireland</option>
-          <option value="Israel">Israel</option>
-          <option value="Italy">Italy</option>
-          <option value="Japan">Japan</option>
-          <option value="Kazakhstan">Kazakhstan</option>
-          <option value="Kosovo">Kosovo</option>
-          <option value="Kuwait">Kuwait</option>
-          <option value="Latvia">Latvia</option>
-          <option value="Lithuania">Lithuania</option>
-          <option value="Luxembourg">Luxembourg</option>
-          <option value="Macao">Macao</option>
-          <option value="Macedonia">Macedonia</option>
-          <option value="Malaysia">Malaysia</option>
-          <option value="Malta">Malta</option>
-          <option value="Mexico">Mexico</option>
-          <option value="Mongolia">Mongolia</option>
-          <option value="Nepal">Nepal</option>
-          <option value="Netherlands">Netherlands</option>
-          <option value="New Zealand">New Zealand</option>
-          <option value="Nigeria">Nigeria</option>
-          <option value="Norway">Norway</option>
-          <option value="Pakistan">Pakistan</option>
-          <option value="Peru">Peru</option>
-          <option value="Philippines">Philippines</option>
-          <option value="Poland">Poland</option>
-          <option value="Portugal">Portugal</option>
-          <option value="Puerto Rico">Puerto Rico</option>
-          <option value="Romania">Romania</option>
-          <option value="Russia">Russia</option>
-          <option value="Serbia">Serbia</option>
-          <option value="Singapore">Singapore</option>
-          <option value="Slovakia">Slovakia</option>
-          <option value="Slovenia">Slovenia</option>
-          <option value="South Africa">South Africa</option>
-          <option value="South Korea">South Korea</option>
-          <option value="Spain">Spain</option>
-          <option value="Sri Lanka">Sri Lanka</option>
-          <option value="Sweden">Sweden</option>
-          <option value="Switzerland">Switzerland</option>
-          <option value="Taiwan">Taiwan</option>
-          <option value="Thailand">Thailand</option>
-          <option value="Turkey">Turkey</option>
-          <option value="USA">United States</option>
-          <option value="Uganda">Uganda</option>
-          <option value="Ukraine">Ukraine</option>
-          <option value="United Arab Emirates">United Arab Emirates</option>
-          <option value="UK">United Kingdom</option>
-          <option value="Uzbekistan">Uzbekistan</option>
-          <option value="Vietnam">Vietnam</option>
-        </select>
-
-        <label class="label2" for="region">Region</label>
-        <select type="text" name="region" id="region" size="1">
-          <option value="placeholder1">Select Country</option>
-        </select>
-
-        <label class="label3" for="city">City</label>
-        <select type="text" name="city" id="city" size="1">
-          <option value="placeholder2">Select Country</option>
-        </select>
-
-        <button type="submit" role="search" class="searchBtn">
-          Search
-        </button>
-      </form>
-    </div>
-    <!---Fill in example city, for initial load-->
-    <div class="results1" role="article">
-      <h2>Example: Atlantis</h2>
-
-      <h3>City Health Rating: Used to be quite high, but has since sunk.</h3>
-
-      <p>
-        Apart from the catastrophic flooding, residents generally don't experience many health risks.
-      </p>
-      <br />
-      <a href="#results2" role="switch">Atlantis Wiki</a>
-      <a href="#results3" role="switch">Atlantis News</a>
-    </div>
-
-    <section class="tabs">
-      <div id="results2" tabindex="-1" role="article" lang="en">
-        <h2>Atlantis</h2>
-        <blockquote>
-          <span>Atlantis</span> is a fictional island mentioned within an allegory on the hubris of nations in Plato's
-          works Timaeus and Critias,
-          where it represents the antagonist naval power that besieges "Ancient Athens"...
-        </blockquote>
-        <button class="showFullWiki" role="toggle">&lt; See Full Article &gt;</button>
-        <iframe src="https://en.wikipedia.org/wiki/Atlantis" frameborder="0" id="wikiFrame"></iframe>
+  <body>
+    <header role="banner">
+      <h1>
+        <span class="top">Aeropolis</span> <br />
+        <span class="bottom"> Visualize your city </span>
+      </h1>
+      <div id="clouds1" role="presentation">
+        <div class="cloud x1"></div>
+        <div class="cloud x2"></div>
+        <div class="cloud x3"></div>
+        <div class="cloud x4"></div>
+        <div class="cloud x5"></div>
+        <div class="cloud x6"></div>
       </div>
 
-      <div id="results3" tabindex="-1" role="article" lang="en">
-        <h2>Health-Related News</h2>
-        <h3>Near Atlantis</h3>
+      <img
+        src="media/City.svg"
+        role="presentation"
+        alt="banner visual: city skyline"
+      />
+    </header>
+    <main role="main">
+      <div class="input" role="search">
+        <h2>Select Your City</h2>
 
-        <button class="showFullNews" role="toggle">&lt;View Articles&gt;</button>
+        <form>
+          <label class="label1" for="country">Country</label>
+          <select type="text" name="country" id="country" size="1">
+            <option value="">Select Country</option>
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Andorra">Andorra</option>
+            <option value="Angola">Angola</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Armenia">Armenia</option>
+            <option value="Australia">Australia</option>
+            <option value="Austria">Austria</option>
+            <option value="Bahrain">Bahrain</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="Belgium">Belgium</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Brunei">Brunei</option>
+            <option value="Bulgaria">Bulgaria</option>
+            <option value="Cambodia">Cambodia</option>
+            <option value="Canada">Canada</option>
+            <option value="Chile">Chile</option>
+            <option value="China">China</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Croatia">Croatia</option>
+            <option value="Curacao">Curacao</option>
+            <option value="Cyprus">Cyprus</option>
+            <option value="Czech Republic">Czech Republic</option>
+            <option value="Denmark">Denmark</option>
+            <option value="Ethiopia">Ethiopia</option>
+            <option value="Finland">Finland</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="Hong Kong">Hong Kong</option>
+            <option value="Hungary">Hungary</option>
+            <option value="India">India</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="Iran">Iran</option>
+            <option value="Ireland">Ireland</option>
+            <option value="Israel">Israel</option>
+            <option value="Italy">Italy</option>
+            <option value="Japan">Japan</option>
+            <option value="Kazakhstan">Kazakhstan</option>
+            <option value="Kosovo">Kosovo</option>
+            <option value="Kuwait">Kuwait</option>
+            <option value="Latvia">Latvia</option>
+            <option value="Lithuania">Lithuania</option>
+            <option value="Luxembourg">Luxembourg</option>
+            <option value="Macao">Macao</option>
+            <option value="Macedonia">Macedonia</option>
+            <option value="Malaysia">Malaysia</option>
+            <option value="Malta">Malta</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Mongolia">Mongolia</option>
+            <option value="Nepal">Nepal</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="Nigeria">Nigeria</option>
+            <option value="Norway">Norway</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Peru">Peru</option>
+            <option value="Philippines">Philippines</option>
+            <option value="Poland">Poland</option>
+            <option value="Portugal">Portugal</option>
+            <option value="Puerto Rico">Puerto Rico</option>
+            <option value="Romania">Romania</option>
+            <option value="Russia">Russia</option>
+            <option value="Serbia">Serbia</option>
+            <option value="Singapore">Singapore</option>
+            <option value="Slovakia">Slovakia</option>
+            <option value="Slovenia">Slovenia</option>
+            <option value="South Africa">South Africa</option>
+            <option value="South Korea">South Korea</option>
+            <option value="Spain">Spain</option>
+            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="Sweden">Sweden</option>
+            <option value="Switzerland">Switzerland</option>
+            <option value="Taiwan">Taiwan</option>
+            <option value="Thailand">Thailand</option>
+            <option value="Turkey">Turkey</option>
+            <option value="USA">United States</option>
+            <option value="Uganda">Uganda</option>
+            <option value="Ukraine">Ukraine</option>
+            <option value="United Arab Emirates">United Arab Emirates</option>
+            <option value="UK">United Kingdom</option>
+            <option value="Uzbekistan">Uzbekistan</option>
+            <option value="Vietnam">Vietnam</option>
+          </select>
 
-        <h3 title="link to story">
-          <a href="https://www.youtube.com/watch?v=cZ5lYOos6Ic">Atlantis Listed Among Top 100 Places to take "Health"
-            Stock Photos</a>
-        </h3>
-        <p><b>From Atlantis Weekly</b></p>
-        <p><b>By Hughe B. Ris</b></p>
-        <img src="media/exArticle2.jpeg" alt="example article 1 image" />
-        <p>
-          Atlantis leads the known world in everything! Even air quality! We don't have any way of measuring this, but
-          we think Atlantis has the
-          best air quality. And we're ahead of all other civilizations. What could they possibly know? Nothing
-          catastrophic could possibly happen to
-          this great city. Mark my words.
-        </p>
+          <label class="label2" for="region">Region</label>
+          <select type="text" name="region" id="region" size="1">
+            <option value="placeholder1">Select Country</option>
+          </select>
 
-        <h3 title="link to story">
-          <a href="https://www.youtube.com/watch?v=FB1EdCpw6wQ">Experts discover cool waves headed towards Atlantis</a>
-        </h3>
-        <p><b>From Atlant3an M3dia</b></p>
-        <p><b>By 'An Intern from Southern California'</b></p>
-        <img src="media/exArticle1.jpg" alt="example article 2 image" />
-        <p>
-          MASSIVE WAVES ARE HEADED TOWARDS ATLANTIS. Experts recommend dusting off those old surfboards to catch some
-          gnarly crests. These aren't
-          ankle-busters. That's for sure!
-        </p>
+          <label class="label3" for="city">City</label>
+          <select type="text" name="city" id="city" size="1">
+            <option value="placeholder2">Select Country</option>
+          </select>
 
-        <h3 title="link to story">
-          <a href="https://www.youtube.com/watch?v=Z0GFRcFm-aY">Atlantis is Sinking. The Wrath of the Gods is Upon
-            Us.</a>
-        </h3>
-        <p><b>From ANN</b></p>
-        <p><b>By Another Name Lost to the Cursed History of this City</b></p>
-        <img src="media/exArticle4.jpg" alt="example article 3 image" />
-        <p>
-          Residents brace themselves for delays as the end of times draws ever closer. Sources say the wrath of the
-          gods
-          was caused by our hubris,
-          and I have to agree...<b>*glub glub glub*</b>
-        </p>
+          <button type="submit" role="search" class="searchBtn">
+            Search
+          </button>
+        </form>
       </div>
-    </section>
+      <!---Fill in example city, for initial load-->
+      <div class="results1" role="article">
+        <h2>Example: Atlantis</h2>
 
-    <div id="mapid" role="map displaying each queried city" role="presentation" lang="en"></div>
-  </main>
-  <footer>
-    <h1>Developed by Solomon Zelenko</h1>
-  </footer>
-  <script src="main.js"></script>
-</body>
+        <h3>City Health Rating: Used to be quite high, but has since sunk.</h3>
 
+        <p>
+          Apart from the catastrophic flooding, residents generally don't
+          experience many health risks.
+        </p>
+        <br />
+        <a href="#results2" role="switch">Atlantis Wiki</a>
+        <a href="#results3" role="switch">Atlantis News</a>
+      </div>
+
+      <section class="tabs">
+        <div id="results2" tabindex="-1" role="article" lang="en">
+          <h2>Atlantis</h2>
+          <blockquote>
+            <span>Atlantis</span> is a fictional island mentioned within an
+            allegory on the hubris of nations in Plato's works Timaeus and
+            Critias, where it represents the antagonist naval power that
+            besieges "Ancient Athens"...
+          </blockquote>
+          <button class="showFullWiki" role="toggle">
+            &lt; See Full Article &gt;
+          </button>
+          <iframe
+            src="https://en.wikipedia.org/wiki/Atlantis"
+            frameborder="0"
+            id="wikiFrame"
+          ></iframe>
+        </div>
+
+        <div id="results3" tabindex="-1" role="article" lang="en">
+          <h2>Health-Related News</h2>
+          <h3>Near Atlantis</h3>
+
+          <button class="showFullNews" role="toggle">
+            &lt;View Articles&gt;
+          </button>
+
+          <h3 title="link to story">
+            <a href="https://www.youtube.com/watch?v=cZ5lYOos6Ic"
+              >Atlantis Listed Among Top 100 Places to take "Health" Stock
+              Photos</a
+            >
+          </h3>
+          <p><b>From Atlantis Weekly</b></p>
+          <p><b>By Hughe B. Ris</b></p>
+          <img src="media/exArticle2.jpeg" alt="example article 1 image" />
+          <p>
+            Atlantis leads the known world in everything! Even air quality! We
+            don't have any way of measuring this, but we think Atlantis has the
+            best air quality. And we're ahead of all other civilizations. What
+            could they possibly know? Nothing catastrophic could possibly happen
+            to this great city. Mark my words.
+          </p>
+
+          <h3 title="link to story">
+            <a href="https://www.youtube.com/watch?v=FB1EdCpw6wQ"
+              >Experts discover cool waves headed towards Atlantis</a
+            >
+          </h3>
+          <p><b>From Atlant3an M3dia</b></p>
+          <p><b>By 'An Intern from Southern California'</b></p>
+          <img src="media/exArticle1.jpg" alt="example article 2 image" />
+          <p>
+            MASSIVE WAVES ARE HEADED TOWARDS ATLANTIS. Experts recommend dusting
+            off those old surfboards to catch some gnarly crests. These aren't
+            ankle-busters. That's for sure!
+          </p>
+
+          <h3 title="link to story">
+            <a href="https://www.youtube.com/watch?v=Z0GFRcFm-aY"
+              >Atlantis is Sinking. The Wrath of the Gods is Upon Us.</a
+            >
+          </h3>
+          <p><b>From ANN</b></p>
+          <p><b>By Another Name Lost to the Cursed History of this City</b></p>
+          <img src="media/exArticle4.jpg" alt="example article 3 image" />
+          <p>
+            Residents brace themselves for delays as the end of times draws ever
+            closer. Sources say the wrath of the gods was caused by our hubris,
+            and I have to agree...<b>*glub glub glub*</b>
+          </p>
+        </div>
+      </section>
+
+      <div
+        id="mapid"
+        role="map displaying each queried city"
+        role="presentation"
+        lang="en"
+      ></div>
+    </main>
+    <footer>
+      <h1>Created by 
+          <a
+          className="signature"
+          href="https://github.com/zempo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+        <img src="/docs/media/logo.svg" alt="Solomon Zelenko" class="logo" /> </h1>
+        </a>
+    </footer>
+    <script src="main.js"></script>
+  </body>
 </html>
