@@ -85,7 +85,7 @@ button {
   max-height: 35px;
   position: relative;
   top: 10px;
-  /* left: 5px; */
+  margin-left: -5px;
   cursor: pointer;
 }
 
