@@ -44,7 +44,9 @@ function watchSelect() {
 
     const url = `https://api.airvisual.com/v2/states?country=${country2}&key=c2ae5684-2a55-4517-99d3-333a3001e1da`;
 
-    fetch(url) 
+    fetch(url, {
+    mode: 'cors', // no-cors, *cors, same-origin
+    }) 
       .then(res => {
         if (res.ok) {
           return res.json();
@@ -66,7 +68,7 @@ function watchSelect() {
 
     $("#city").empty(); 
 
-    const url = `https://api.airvisual.com/v2/cities?state=${region2}&country=${country2}&key=914e9263-a4a2-4261-9b80-d9436dc5965f`;
+    const url = `https://api.airvisual.com/v2/cities?state=${region2}&country=${country2}&key=c2ae5684-2a55-4517-99d3-333a3001e1da`;
 
     fetch(url)
       .then(res => {
@@ -84,7 +86,7 @@ function watchSelect() {
 }
 
 /* ///////////////// Results /////////////////// */
-const apiKey1 = "914e9263-a4a2-4261-9b80-d9436dc5965f"; // air quality
+const apiKey1 = "c2ae5684-2a55-4517-99d3-333a3001e1da"; // air quality
 const apiKey2 =
   "pk.eyJ1Ijoic3plbGVua28iLCJhIjoiY2pyeTFua3B5MDkweDQ5b2FkN2Zjd2J3MyJ9.0bRcWdywT6p9iANZuDw-0Q"; // maps
 const apiKey3 = "13b5bb62016543439061414e0e3274bf"; // news
@@ -426,7 +428,7 @@ function fetchAQ(city, region, country) {
   const country2 = encodeURI(country);
   const region2 = encodeURI(region);
   const city2 = encodeURI(city);
-  const aqURL = `https://api.airvisual.com/v2/city?city=${city2}&state=${region2}&country=${country2}&key=914e9263-a4a2-4261-9b80-d9436dc5965f`;
+  const aqURL = `https://api.airvisual.com/v2/city?city=${city2}&state=${region2}&country=${country2}&key=c2ae5684-2a55-4517-99d3-333a3001e1da`;
  
   fetch(aqURL)
     .then(res => {
