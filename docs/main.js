@@ -42,7 +42,7 @@ function watchSelect() {
 
     $("#region").empty();
 
-    const url = `https://api.airvisual.com/v2/states?country=${country2}&key=914e9263-a4a2-4261-9b80-d9436dc5965f`;
+    const url = `https://api.airvisual.com/v2/states?country=${country2}&key=c2ae5684-2a55-4517-99d3-333a3001e1da`;
 
     fetch(url) 
       .then(res => {
